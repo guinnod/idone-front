@@ -1,0 +1,11 @@
+@import '../mixins';
+@import '../variables';
+
+
+.anchor {
+    display: flex;
+    flex-direction: flex-end;
+    & > * {
+        margin-left: -10px;
+    }
+}
