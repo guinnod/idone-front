@@ -1,0 +1,7 @@
+@import "../../mixins";
+@import "../../variables";
+
+.anchor {
+    @include circle(32px);
+    background-color: $white-gray;
+}

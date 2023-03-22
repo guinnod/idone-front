@@ -1,0 +1,34 @@
+@import "../../mixins";
+@import "../../variables";
+
+.anchor {
+    @include flex;
+    justify-content: space-between;
+    width: 6.5rem;
+}
+
+.text {
+    font-family: "Red Rose";
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: $logo-gray;
+}
+
+.item {
+    width: 30px;
+    height: 30px;
+    & > div {
+        @include flex-center;
+        background: rgba(89, 162, 45, 0.53);
+        border-radius: 11px;
+        width: inherit;
+        height: inherit;
+    }
+    & > div > div {
+        @include flex-center;
+        background: $main;
+        width: 26px;
+        height: 26px;
+        border-radius: inherit;
+    }
+}
