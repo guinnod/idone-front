@@ -1,0 +1,11 @@
+@import "../../../mixins";
+@import "../../../variables";
+
+.anchor {
+    @include flex;
+    gap: 10px;
+    font-weight: 400;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: $white-gray;
+}

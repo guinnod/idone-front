@@ -1,0 +1,15 @@
+@import "../../../mixins";
+@import "../../../variables";
+
+.anchor {
+    @include flex;
+    background-color: $white-gray;
+    font-family: 'Gilroy';
+    border-radius: 30px;
+    padding: 10px;
+    width: max-content;
+    gap: 10px;
+    & > input {
+        background-color: inherit;
+    }
+}
