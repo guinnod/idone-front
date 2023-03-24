@@ -1,0 +1,20 @@
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
+
+.text {
+    font-size: 20px;
+    padding: 10px;
+    color: $font-gray;
+    font-weight: 300;
+}
+
+.add {
+    @extend .text;
+    font-size: 14px;
+}
+
+.selected {
+    background: $selected-gray;
+    color: $main;
+    font-weight: 500;
+}

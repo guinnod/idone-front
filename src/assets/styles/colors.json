@@ -1,4 +1,17 @@
 {
-    "gray": "#E9EBEC", 
-    "main": "#59a22d"
+    "logo_gray": "#33403d",
+    "main": "#59a22d",
+    "white_gray": "#f7f7f8",
+    "dark_gray": "#eff0f1",
+    "background": "#fcfcfc",
+    "pacific_blue": "#2d68a2",
+    "data_gray": "#b5b5b5",
+    "azure": "#4339f2",
+    "camine": "#e95050",
+    "text_dark": "#181a1b",
+    "background_gray": "#f4f4f4",
+    "add_text_black": "#181a1b",
+    "gray": "#e9ebec",
+    "selected_gray": "#eff5fb",
+    "font_gray": "#838a91"
 }
