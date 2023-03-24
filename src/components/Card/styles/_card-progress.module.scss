@@ -1,0 +1,12 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    height: 5px;
+    @include card(white, 5px, 0, 150px);
+    border: none;
+    &::-moz-progress-bar {
+        background-color: $azure;
+        border-radius: 5px;
+    }
+}

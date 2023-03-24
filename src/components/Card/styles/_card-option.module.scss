@@ -1,0 +1,13 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include flex;
+    gap: 4px;
+    width: max-content;
+}
+
+.data {
+    font-size: 16px;
+    color: $data-gray;
+}

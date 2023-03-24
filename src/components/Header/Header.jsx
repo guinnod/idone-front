@@ -1,37 +1,41 @@
-import styles from '../../styles/components/Header/_header.module.scss'
-import { OtherUsers } from './ui/OtherUsers'
-import { CreateButton } from "./ui/CreateButton"
-import { HomeButton } from "./ui/HomeButton"
-import { InviteButton } from './ui/InviteButton'
-import { Logo } from "./ui/Logo"
-import { NotifyButton } from "./ui/NotifyButton"
-import { SearchInput } from "./ui/SearchInput"
-import { SideButton } from "./ui/SideButton"
-import { UserPhoto } from "./ui/UserPhoto"
+import styles from './styles/_header.module.scss'
+import { OtherUsers } from './OtherUsers'
+import { CircleButton } from "./CircleButton"
+import { InviteButton } from './InviteButton'
+import { Logo } from "./Logo"
+import { SearchInput } from "./SearchInput"
+import { UserPhoto } from "./UserPhoto"
+import menuIcon from '../../assets/icons/menu.svg'
+import homeIcon from '../../assets/icons/home.svg'
+import addIcon from '../../assets/icons/add.svg'
+import notifyIcon from '../../assets/icons/notify.svg'
+import colors from '../../assets/styles/colors.json'
 export const Header = () => {
     return (
         <>
             <div className={styles.anchor} >
                 <div>
-                    <SideButton />
-                    <HomeButton />
-                    <CreateButton />
+                    <CircleButton svg={menuIcon} color={colors.gray} />
+                    <CircleButton svg={homeIcon} color={colors.gray} />
+                    <CircleButton svg={addIcon} color={colors.main} />
                 </div>
                 <div>
                     <Logo />
-
                 </div>
                 <div>
-
                     <SearchInput />
-                    <NotifyButton />
+                    <CircleButton svg={notifyIcon} color={colors.gray} />
                     <UserPhoto />
                 </div>
             </div>
             <div className={styles.anchor}>
                 <div>
-                    Brackets
+                    <div className={styles.text}>
+                        Brackets
+                    </div>
+                    <div className={styles.line}></div>
                 </div>
+
                 <div>
                     <OtherUsers />
                     <InviteButton />

@@ -1,0 +1,13 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include flex;
+}
+
+.text {
+    font-family: Red Rose;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: $logo-gray;
+}

@@ -1,0 +1,12 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+
+.anchor {
+    @include flex;
+    @include card($background-gray, 8px, 10px, 280px);
+    flex-direction: column;
+    & > div {
+        width: 100%;
+    }
+}

@@ -1,0 +1,16 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include flex;
+    @include card(white, 6px, 10px, auto);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+}
+
+.text {
+    font-weight: 300;
+    font-size: 14px;
+}

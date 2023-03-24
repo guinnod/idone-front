@@ -1,4 +1,4 @@
-import styles from '../../styles/components/CardList/_card-list.module.scss'
+import styles from './styles/_card-list.module.scss'
 import { Card } from '../Card/Card';
 import { CardListAdd } from './CardListAdd'
 import { CardListHeader } from './CardListHeader'
@@ -12,7 +12,7 @@ export const CardList = () => {
             {cards.map((e, key) => {
                 return (<Card key={key} />)
             })}
-            <CardListAdd />
+            <CardListAdd text='Add new card' />
         </div>
     )
 }

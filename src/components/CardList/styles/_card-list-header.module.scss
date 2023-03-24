@@ -1,0 +1,31 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include flex;
+    @include card(white, 6px 6px 0px 0px, 0 10px 0 20px, auto);
+    position: relative;
+    height: 40px;
+    & > div {
+        @include flex;
+    }
+    & img {
+        transform: scale(1.2);
+    }
+}
+
+.text {
+    color: $text-dark;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.marker {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 6px;
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+}

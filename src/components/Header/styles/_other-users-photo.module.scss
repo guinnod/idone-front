@@ -1,0 +1,13 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include circle(32px);
+    background-color: $pacific-blue;
+    border: 2px $white-gray solid;
+}
+
+.text {
+    color: white;
+    font-size: 10px;
+}

@@ -1,4 +1,4 @@
-import styles from '../../styles/components/CardList/_card-list-header.module.scss'
+import styles from './styles/_card-list-header.module.scss'
 import add from '../../assets/icons/add-gray.svg';
 import options from '../../assets/icons/options.svg';
 export const CardListHeader = ({ color, text }) => {
