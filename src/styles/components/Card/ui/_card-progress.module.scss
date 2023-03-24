@@ -1,0 +1,14 @@
+@import "../../../mixins";
+@import "../../../variables";
+
+.anchor {
+    height: 10px;
+    width: 150px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    &::-moz-progress-bar {
+        background-color: $azure;
+        border-radius: 5px;
+    }
+}

@@ -1,0 +1,15 @@
+@import "../../mixins";
+@import "../../variables";
+
+
+.anchor {
+    @include flex;
+    background: $background-gray;
+    border-radius: 8px;
+    flex-direction: column;
+    width: 280px;
+    padding: 10px;
+    & > div {
+        width: 90%;
+    }
+}

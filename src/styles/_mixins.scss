@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 }
 
 @mixin flex-center {
@@ -15,3 +16,10 @@
     width: $size;
     height: $size;
 }
+
+@mixin card($background, $radius, $padding, $width) {
+    background: $background;
+    border-radius: $radius;
+    padding: $padding;
+    width: $width;
+} 
