@@ -1,0 +1,12 @@
+@import '../../../assets//styles/mixins';
+@import '../../../assets//styles/variables';
+
+.anchor {
+    @include flex;
+    padding: 5px 0;
+}
+
+.text {
+    @include flex;
+    font-size: 16px;
+}

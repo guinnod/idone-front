@@ -10,6 +10,11 @@
     justify-content: center;
 }
 
+@mixin flex-vertical {
+    @include flex;
+    flex-direction: column;
+}
+
 @mixin circle($size) {
     @include flex-center;
     border-radius: 50%;

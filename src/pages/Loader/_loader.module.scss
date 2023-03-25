@@ -1,0 +1,14 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/variables';
+
+.anchor {
+    @include flex-vertical;
+    color: $main;
+}
+
+.text {
+    font-weight: 600;
+    color: $gray1;
+    font-size: 56px;
+    margin: 100px 0 0 0;
+}
