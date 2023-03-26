@@ -13,5 +13,6 @@
     "add_text_black": "#181a1b",
     "gray": "#e9ebec",
     "selected_gray": "#eff5fb",
-    "font_gray": "#838a91"
+    "font_gray": "#838a91", 
+    "purple": "#bb6bd9"
 }

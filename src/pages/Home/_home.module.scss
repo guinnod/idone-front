@@ -1,0 +1,23 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/variables';
+
+.boards {
+    @include flex;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 36px 0;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    padding: 80px 130px;
+    & > div:last-child {
+        padding: 0 80px;
+    }
+}

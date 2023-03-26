@@ -28,7 +28,7 @@ export const Header = () => {
                     <UserPhoto />
                 </div>
             </div>
-            <div className={styles.anchor}>
+            {/* <div className={styles.anchor}>
                 <div>
                     <div className={styles.text}>
                         Brackets
@@ -40,7 +40,7 @@ export const Header = () => {
                     <OtherUsers />
                     <InviteButton />
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

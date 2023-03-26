@@ -9,10 +9,12 @@ import cool_guy from './assets/icons/CoolGuy.svg'
 import { PersonsCard } from "./components/SelectPerson/PersonsCard"
 import { Loader } from "./pages/Loader/Loader"
 import {SignIn} from './pages/Auth/SignIn'
+import { Home } from "./pages/Home/Home"
+
 function App() {
   return (
     <div className="App">
-      <SignIn />
+      <Home />
     </div>
   )
 }
