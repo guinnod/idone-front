@@ -1,0 +1,9 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include flex-center;
+    @include card(white, 5x, 5px 12px, auto);
+    font-size: 14px;
+    font-weight: 400;
+}

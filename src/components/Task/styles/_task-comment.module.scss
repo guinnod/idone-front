@@ -1,0 +1,12 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include card(#FAFAFB, 20px, 14px 20px, auto);
+
+}
+
+.icon {
+    @include circle(38px);
+    background: white;
+}

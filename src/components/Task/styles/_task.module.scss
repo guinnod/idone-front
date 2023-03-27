@@ -1,0 +1,9 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.gray-text {
+    font-family: Poppins;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #9EA3A9;
+}
