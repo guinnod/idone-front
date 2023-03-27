@@ -1,0 +1,28 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include flex;
+    @include card(#e9ebec, 10px, 20px, auto);
+    position: relative;
+    margin: 20px 15px;
+    input {
+        height: 40px;
+        width: 100%;
+    }
+}
+
+.area {
+    @include flex;
+    width: 100%;
+    position: relative;
+    img {
+        position: absolute;
+        right: 10px;
+    }
+}
+
+.photo {
+    position: absolute;
+    left: -20px;
+}
