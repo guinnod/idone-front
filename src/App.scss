@@ -1,5 +1,5 @@
-@import '../assets/styles/mixins';
-@import '../assets/styles/variables';
+@import './assets/styles/mixins';
+@import './assets/styles/variables';
 @import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
@@ -12,6 +12,7 @@ body {
     font-size: 14px;
     background-color: $background;
     font-family: Roboto;
+   
 }
 
 input,

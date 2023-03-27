@@ -2,7 +2,7 @@ import styles from './styles/_task-comment.module.scss'
 import arrowIcon from '../../assets/icons/fi_arrow-up.svg'
 import { UserPhoto } from '../Header/UserPhoto'
 
-export const TaskComment = ({ status }) => {
+export const CommentInput = ({ status }) => {
 
     return (
         <div className={styles.anchor}>

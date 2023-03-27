@@ -1,9 +1,8 @@
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
+
 .anchor {
-    & h1 {
-        font-size: 24px;
-        font-weight: 600;
-    }
-    & p {
-        color: #696974;
-    }
+    @include flex;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e9ebec;
 }

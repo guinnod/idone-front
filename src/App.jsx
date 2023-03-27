@@ -1,4 +1,4 @@
-import { Routing } from "./Context/Routing"
+import { Routing } from "./context/Routing"
 import { Home } from "./pages/Home/Home"
 
 function App() {

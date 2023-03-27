@@ -16,6 +16,7 @@ export const Routing = () => {
                     <Route index element={<Home />} />
                     <Route path="tasks" element={<Tasks />} />
                     <Route path="workspace" element={<Workspace />} />
+                    
                 </Route>
             </Routes>
         </BrowserRouter>

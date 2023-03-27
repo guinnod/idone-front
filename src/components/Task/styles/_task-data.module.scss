@@ -1,0 +1,23 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.anchor {
+    @include flex;
+    justify-content: flex-start;
+    gap: 80px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #E9EBEC;
+}
+
+.gray_text {
+    font-size: 12px;
+    font-family: Poppins;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #9EA3A9;
+}
+
+.box {
+    @include flex;
+    height: 32px;
+}

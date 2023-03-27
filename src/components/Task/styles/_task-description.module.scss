@@ -1,0 +1,28 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+
+.anchor {
+    @include flex;
+    align-items: flex-start;
+    padding: 33px 0;
+    & > section {
+        @include flex-vertical;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    a {
+        font-family: Poppins;
+        color: #0062FF;
+        text-decoration: underline;
+    }
+}
+
+.text {
+    font-weight: 600;
+    font-family: Poppins;
+}
+.content {
+    color: #44444F;
+}

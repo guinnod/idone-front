@@ -1,0 +1,14 @@
+@import "../../assets/styles/mixins";
+@import "../../assets/styles/variables";
+
+.anchor {
+    @include card(white, 20px, 0, 750px);
+    position: relative;
+    & > section {
+        padding: 40px;
+    }
+    h4 {
+        font-family: Poppins;
+        margin: 0 0 0 20px;
+    }
+}
