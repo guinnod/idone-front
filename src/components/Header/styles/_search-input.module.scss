@@ -1,15 +1,10 @@
-@import '../../../assets/styles/mixins';
-@import '../../../assets/styles/variables';
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
 
 .anchor {
     @include flex;
-    background-color: $white-gray;
-    font-family: 'Gilroy';
-    border-radius: 30px;
-    padding: 10px;
-    width: max-content;
-    gap: 10px;
-    & > input {
+    @include card($gray-mid, 30px, 10px, max-content);
+    input {
         background-color: inherit;
     }
 }

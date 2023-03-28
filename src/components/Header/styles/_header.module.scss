@@ -1,10 +1,9 @@
-@import '../../../assets/styles/mixins';
-@import '../../../assets/styles/variables';
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
 
 .anchor {
     @include flex;
-    background-color: white;
-    padding: 6px 12px;
+    @include card(white, 0, 6px 12px, auto);
     & > div {
         width: 33.33%;
         @include flex;
@@ -17,7 +16,7 @@
         justify-content: flex-end;
     }
     &:last-child {
-        border-bottom: 1px $dark-gray solid;
+        border-bottom: 1px $gray-light solid;
     }
 }
 

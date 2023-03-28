@@ -3,6 +3,6 @@
 
 .anchor {
     @include flex;
-    @include card($white-gray, 30px, 10px, auto);
+    @include card($gray-mid, 30px, 10px, auto);
     font-weight: 300;
 }

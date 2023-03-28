@@ -3,11 +3,8 @@
 
 .anchor {
     @include circle(32px);
-    background-color: $pacific-blue;
-    border: 2px $white-gray solid;
-}
-
-.text {
+    background-color: $blue-pacific;
+    border: 2px white solid;
     color: white;
     font-size: 10px;
 }

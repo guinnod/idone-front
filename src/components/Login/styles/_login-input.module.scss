@@ -2,18 +2,17 @@
 @import '../../../assets/styles/variables';
 .anchor {
     position: relative;
-    margin: 15px 0;
 }
 .input {
     @include card(none, 10px, 10px 20px, 500px);
-    border: 1px solid $logo-gray;
+    border: 1px solid $gray;
 }
 
 .label {
     position: absolute;
     top: -9px;
     left: 15px;
-    background-color: white;
+    background: white;
     padding: 0 4px;
-    color: $font-gray;
+    color: $gray;
 }

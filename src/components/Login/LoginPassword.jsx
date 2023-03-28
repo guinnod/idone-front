@@ -1,4 +1,4 @@
-import styles from './styles/_login-password.module.scss'
+import styles from './styles/_login-input.module.scss'
 export const LoginPassword = ({ placeholder }) => {
     return (
         <div className={styles.anchor}>

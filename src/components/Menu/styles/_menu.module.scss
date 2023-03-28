@@ -4,7 +4,6 @@
 .text {
     font-size: 20px;
     padding: 10px;
-    color: $font-gray;
     font-weight: 300;
 }
 
@@ -14,7 +13,7 @@
 }
 
 .selected {
-    background: $selected-gray;
+    background: $gray-blue;
     color: $main;
     font-weight: 500;
 }

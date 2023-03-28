@@ -1,15 +1,15 @@
-@import '../../../assets/styles/mixins';
-@import '../../../assets/styles/variables';
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
 
 .anchor {
     @include flex;
     font-size: 14px;
-    color: $font-gray;
+    color: $gray;
     width: 500px;
-    & a {
+    a {
         font-weight: 500;
     }
-    & input{
+    input {
         accent-color: $main;
     }
 }

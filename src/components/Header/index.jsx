@@ -10,25 +10,29 @@ import homeIcon from '../../assets/icons/home.svg'
 import addIcon from '../../assets/icons/add.svg'
 import notifyIcon from '../../assets/icons/notify.svg'
 import colors from '../../assets/styles/colors.json'
+
+const headerContent = <div className={styles.anchor} >
+    <div>
+        <CircleButton svg={menuIcon} color={colors.gray_mid} />
+        <CircleButton svg={homeIcon} color={colors.gray_mid} />
+        <CircleButton svg={addIcon} color={colors.main} />
+    </div>
+        <Logo />
+    <div>
+        <SearchInput />
+        <CircleButton svg={notifyIcon} color={colors.gray_mid} />
+        <UserPhoto />
+    </div>
+</div>
+
 export const Header = () => {
+    return (headerContent)
+}
+export const HeaderExtended = () => {
     return (
-        <>
-            <div className={styles.anchor} >
-                <div>
-                    <CircleButton svg={menuIcon} color={colors.gray} />
-                    <CircleButton svg={homeIcon} color={colors.gray} />
-                    <CircleButton svg={addIcon} color={colors.main} />
-                </div>
-                <div>
-                    <Logo />
-                </div>
-                <div>
-                    <SearchInput />
-                    <CircleButton svg={notifyIcon} color={colors.gray} />
-                    <UserPhoto />
-                </div>
-            </div>
-            {/* <div className={styles.anchor}>
+        <section>
+            {headerContent}
+            <div className={styles.anchor}>
                 <div>
                     <div className={styles.text}>
                         Brackets
@@ -37,10 +41,10 @@ export const Header = () => {
                 </div>
 
                 <div>
-                    <OtherUsers />
+                    <OtherUsers users={[]}/>
                     <InviteButton />
                 </div>
-            </div> */}
-        </>
+            </div>
+        </section>
     )
-}
+} 

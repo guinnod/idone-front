@@ -1,18 +1,25 @@
 import styles from './styles/_other-users.module.scss'
 import { OtherUsersPhoto } from './OtherUsersPhoto'
-import userPhoto from '../../assets/images/userPhoto.jpg'
 import { UserPhoto } from './UserPhoto';
 
-export const OtherUsers = () => {
-    const users = [userPhoto, userPhoto, userPhoto];
+export const OtherUsers = ({ users, limit }) => {
+    let isLast;
+    let amount;
+    if (users) {
+        isLast = users.length > limit
+        amount = users.length - limit
+        if (amount == 0) {
+            amount = ''
+        }
+    }
     return (
         <div className={styles.anchor} >
-            {users.map((e, key) => {
+            {users ? users.map((e, key) => {
                 return (
-                    <UserPhoto key={key}/>
+                    <UserPhoto photoSrc={e} key={key} />
                 );
-            })}
-            <OtherUsersPhoto />
+            }) : <></>}
+            {isLast ? <OtherUsersPhoto amount={amount} /> : <></>}
         </div>
     )
 }

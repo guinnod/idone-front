@@ -6,9 +6,11 @@ export const LoginOptions = ({ isForgot }) => {
                 <input type="checkbox" name="remember" id="remember" />
                 <label htmlFor='remember'>Remember me</label>
             </div>
-            <a>
-                Forgot password?
-            </a>
+            {isForgot ?
+                <a>
+                    Forgot password?
+                </a>
+                : <></>}
         </div>
     )
 } 

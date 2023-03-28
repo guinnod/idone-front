@@ -1,0 +1,12 @@
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
+
+.anchor {
+    height: 5px;
+    @include card(inherit, 5px, 0, 150px);
+}
+
+.value {
+    border-radius: 5px;
+    height: 5px;
+}

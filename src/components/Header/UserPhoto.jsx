@@ -1,9 +1,9 @@
 import styles from './styles/_user-photo.module.scss'
-import userPhoto from '../../assets/images/userPhoto.jpg'
-export const UserPhoto = () => {
+
+export const UserPhoto = ({ photoSrc }) => {
     return (
         <div className={styles.anchor} >
-            <img src={userPhoto} alt="user" />
+            <img src={photoSrc} alt="user" />
         </div>
     )
 }

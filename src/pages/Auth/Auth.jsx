@@ -4,15 +4,15 @@ import { LoginButton } from '../../components/Login/LoginButton'
 import { LoginInput } from '../../components/Login/LoginInput'
 import { LoginOptions } from '../../components/Login/LoginOptions'
 import { LoginPassword } from '../../components/Login/LoginPassword'
-export const SignUp = () => {
+export const Auth = ({ text, isForgot, placeholder }) => {
     return (
         <div className={styles.anchor}>
             <Logo />
-            <h1 className={styles.text}>Sign in</h1>
+            <h1 className={styles.text}>{text}</h1>
             <LoginInput placeholder='Your Email / Username' />
-            <LoginPassword placeholder='Enter password' />
-            <LoginOptions />
-            <LoginButton text='Sign in' />
+            <LoginPassword placeholder={placeholder} />
+            <LoginOptions isForgot={isForgot} />
+            <LoginButton text={text} />
         </div>
     )
 }

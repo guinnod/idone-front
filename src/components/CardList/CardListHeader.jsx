@@ -4,10 +4,8 @@ import options from '../../assets/icons/options.svg';
 export const CardListHeader = ({ color, text }) => {
     return (
         <div className={styles.anchor}>
-            <div className={styles.marker} style={{background: color}}></div>
-            <div className={styles.text}>
-                {text}
-            </div>
+            <div className={styles.marker} style={{ background: color }}></div>
+            {text}
             <div>
                 <img src={add} alt="add" />
                 <img src={options} alt="options" />

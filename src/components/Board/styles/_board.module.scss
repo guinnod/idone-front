@@ -2,19 +2,15 @@
 @import '../../../assets/styles/variables';
 
 .anchor {
-    @include flex;
-    flex-direction: column;
+    @include flex-vertical;
     align-items: flex-start;
     gap: 15px;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .item {
     @include card(white, 10px, 0, 220px);
     height: 65px;
-}
-
-.text {
-    font-weight: 500;
-    font-size: 20px;
 }
 

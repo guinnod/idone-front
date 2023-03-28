@@ -5,7 +5,6 @@
     @include flex;
     justify-content: flex-start;
     gap: 30px;
-    padding: 36px 0;
 }
 
 .text {
@@ -15,9 +14,5 @@
 }
 
 .content {
-    display: flex;
-    padding: 80px 130px;
-    & > div:last-child {
-        padding: 0 80px;
-    }
+    @include flex;
 }
