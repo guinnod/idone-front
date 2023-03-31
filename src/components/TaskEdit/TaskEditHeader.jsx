@@ -1,10 +1,10 @@
-import styles from './styles/_add-task-header.module.scss'
+import styles from './styles/_task-edit-header.module.scss'
 import closeIcon from '@icons/ic_Close.svg'
 import userIcon from '@icons/user-add.svg'
 import calendarIcon from '@icons/calendar.svg'
 import timerIcon from '@icons/timer.svg'
 
-export const AddTaskHeader = () => {
+export const TaskEditHeader = () => {
     return (
         <section className={styles.anchor}>
             <h2>Name of the task</h2>

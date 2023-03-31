@@ -1,7 +1,7 @@
-import calculateProgress from '../../utils/calculateProgress'
-import styles from './styles/_card-progress.module.scss'
+import calculateProgress from '@utils/calculateProgress'
+import styles from './styles/_progress.module.scss'
 
-export const CardProgress = ({ value, color }) => {
+export const Progress = ({ value, color }) => {
     const width = calculateProgress(value, 150);
     return (
         <div className={styles.anchor}>

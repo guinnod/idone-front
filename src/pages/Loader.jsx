@@ -1,6 +1,6 @@
 import styles from './styles/_loader.module.scss'
 import coolGuy from '@icons/CoolGuy.svg'
-import { Logo } from '../components/Header/Logo'
+import { Logo } from '../components/ui/Logo'
 export const Loader = () => {
     return (
         <div className={styles.anchor}>

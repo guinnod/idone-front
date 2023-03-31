@@ -1,6 +1,6 @@
 import styles from './styles/_comment-input.module.scss'
 import arrowIcon from '@icons/fi_arrow-up.svg'
-import { UserPhoto } from '../Header/UserPhoto'
+import { UserPhoto } from '../ui/UserPhoto'
 
 export const CommentInput = () => {
 

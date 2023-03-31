@@ -1,18 +1,20 @@
-import { DescriptionInput } from '@components/Task/DescriptionInput'
-import { TaskButton } from '@components/Task/TaskButton'
-import { TaskDate } from '@components/Task/TaskDate'
-import { AddTaskHeader } from '@Task/AddTaskHeader'
-import { OtherUsers } from '@components/Header/OtherUsers'
-import styles from './styles/_add-task.module.scss'
+import styles from './styles/_task-edit.module.scss'
+import { DescriptionInput } from '@components/TaskEdit/DescriptionInput'
+import { TaskButton } from '@components/TaskEdit/TaskButton'
+import { TaskDate } from '@components/TaskEdit/TaskDate'
+import { TaskEditHeader } from '@components/TaskEdit/TaskEditHeader'
+import { OtherUsers } from '@ui/OtherUsers'
 import userPhoto from '@images/userPhoto.jpg'
 import shareIcon from '@icons/share.svg'
 import arrowIcon from '@icons/arrow.svg'
-import { UserPhoto } from '@components/Header/UserPhoto'
+import { UserPhoto } from '@ui/UserPhoto'
+import { Checklist } from '@components/TaskEdit/Checklist'
+import { TaskCheck } from '@components/TaskEdit/TaskCheck'
 
-export const AddTask = () => {
+export const TaskEdit = () => {
     return (
         <div className={styles.anchor}>
-            <AddTaskHeader />
+            <TaskEditHeader />
             <section className={styles.content}>
                 <section>
                     <div className={styles.hbox}>
@@ -21,6 +23,8 @@ export const AddTask = () => {
                     </div>
                     <TaskDate date='20/03/2021' />
                     <DescriptionInput />
+                    <Checklist />
+                    <TaskCheck text='Set new password' />
                     <div className={styles.box}>
                         <img src={arrowIcon} alt="arrow" />
                         <img src={shareIcon} alt="share" />

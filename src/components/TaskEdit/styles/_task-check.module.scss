@@ -1,0 +1,23 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.anchor {
+    @include flex;
+    div {
+        @include flex;
+    }
+    div:last-child {
+        gap: 20px;
+    }
+    padding: 10px 0;
+    font-size: 16px;
+    input {
+        margin: 0;
+        accent-color: $blue-pacific;
+        transform: scale(1.5);
+        width: 20px;
+    }
+    img {
+        transform: scale(1.2);
+    }
+}

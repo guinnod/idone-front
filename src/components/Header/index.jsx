@@ -1,10 +1,10 @@
 import styles from './styles/_header.module.scss'
-import { OtherUsers } from './OtherUsers'
-import { CircleButton } from "./CircleButton"
+import { OtherUsers } from '@ui/OtherUsers'
+import { CircleButton } from "@ui/CircleButton"
 import { InviteButton } from './InviteButton'
-import { Logo } from "./Logo"
+import { Logo } from "@ui/Logo"
 import { SearchInput } from "./SearchInput"
-import { UserPhoto } from "./UserPhoto"
+import { UserPhoto } from "@ui/UserPhoto"
 import menuIcon from '@icons/menu.svg'
 import homeIcon from '@icons/home.svg'
 import addIcon from '@icons/add.svg'

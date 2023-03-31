@@ -1,9 +1,9 @@
-import { CommentInput } from '../components/Task/CommentInput'
-import { TaskComment } from '../components/Task/TaskComment'
-import { TaskData } from '../components/Task/TaskData'
-import { TaskDescription } from '../components/Task/TaskDescription'
-import { TaskHeader } from '../components/Task/TaskHeader'
-import { TaskName } from '../components/Task/TaskName'
+import { CommentInput } from '../components/TaskEdit/CommentInput'
+import { TaskComment } from '../components/TaskView/TaskComment'
+import { TaskData } from '../components/TaskView/TaskData'
+import { TaskDescription } from '../components/TaskView/TaskDescription'
+import { TaskHeader } from '../components/TaskView/TaskHeader'
+import { TaskName } from '../components/TaskView/TaskName'
 import styles from './styles/_task-view.module.scss'
 
 export const TaskView = () => {

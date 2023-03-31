@@ -54,13 +54,34 @@
                 "src/components/SelectPerson/*"
             ],
             "@Task/*": [
-                "src/components/Task/*"
+                "src/components/TaskEdit/*"
             ],
             "@layoutsStyles/*": [
                 "src/layouts/styles/*"
             ],
             "@pagesStyles/*": [
                 "src/pages/styles/*"
+            ],
+            "@.fr-H1XknV/*": [
+                "src/assets/icons/.fr-H1XknV/*"
+            ],
+            "@ui/*": [
+                "src/components/ui/*"
+            ],
+            "@componentsUiStyles/*": [
+                "src/components/ui/styles/*"
+            ],
+            "@TaskView/*": [
+                "src/components/TaskView/*"
+            ],
+            "@componentsTaskViewStyles/*": [
+                "src/components/TaskView/styles/*"
+            ],
+            "@TaskEdit/*": [
+                "src/components/TaskEdit/*"
+            ],
+            "@componentsTaskEditStyles/*": [
+                "src/components/TaskEdit/styles/*"
             ]
         }
     }

@@ -1,4 +1,4 @@
-import { UserPhoto } from '../Header/UserPhoto'
+import { UserPhoto } from '../ui/UserPhoto'
 import styles from './styles/_select-person.module.scss'
 export const SelectPerson = ({ name, photo }) => {
 
