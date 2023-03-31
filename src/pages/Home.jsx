@@ -1,8 +1,8 @@
-import styles from './_home.module.scss'
-import colors from '../../assets/styles/colors.json'
-import { Header } from '../../components/Header'
-import { Board } from '../../components/Board/Board'
-import { Menu } from '../../components/Menu'
+import styles from './styles/_home.module.scss'
+import colors from '@styles/colors.json'
+import { Header } from '../components/Header'
+import { Board } from '../components/Board/Board'
+import { Menu } from '../components/Menu'
 export const Home = () => {
     const boards = [{ name: 'Uni project', color: colors.blue_pacific }, { name: 'UI Kit', color: colors.main }, { name: 'Illustration', color: colors.red }, { name: 'Design System', color: colors.purple }]
     return (

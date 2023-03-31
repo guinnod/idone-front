@@ -1,5 +1,5 @@
 import styles from './styles/_task-marker.module.scss'
-import checkIcon from '../../assets/icons/ic_Check.svg'
+import checkIcon from '@icons/ic_Check.svg'
 export const TaskMarker = () => {
     return (
         <div className={styles.anchor}>

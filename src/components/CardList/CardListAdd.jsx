@@ -1,5 +1,5 @@
 import styles from './styles/_card-list-add.module.scss'
-import add from '../../assets/icons/add-gray.svg';
+import add from '@/icons/add-gray.svg';
 
 export const CardListAdd = ({ text }) => {
     return (

@@ -1,0 +1,15 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.anchor {
+    h3 {
+        margin: 8px 0;
+    }
+    textarea {
+        border: 1px solid $gray-mid;
+        border-radius: 8px;
+        padding: 14px;
+        width: 500px;
+        resize: none;
+    }
+}

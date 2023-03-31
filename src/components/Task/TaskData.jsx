@@ -22,9 +22,7 @@ export const TaskData = ({ status }) => {
                 return (
                     <div key={key}>
                         <p className={styles.gray_text}>{e.name}</p>
-                        <div className={styles.box}>
-                            {e.component}
-                        </div>
+                        {e.component}
                     </div>
                 )
             })}

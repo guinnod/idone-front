@@ -1,14 +1,15 @@
-@import '../../../assets/styles/mixins';
-@import '../../../assets/styles/variables';
+@import "@styles/mixins";
+@import "@styles/variables";
 
 .anchor {
     @include flex;
-    @include card(#e9ebec, 10px, 20px, auto);
+    @include card($gray-mid, 10px, 20px, auto);
     position: relative;
     margin: 20px 15px;
     input {
         height: 40px;
-        width: 100%;
+        width: inherit;
+        padding: 0 10px;
     }
 }
 

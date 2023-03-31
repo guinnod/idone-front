@@ -1,0 +1,48 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.anchor {
+    @include card(white, 12px, 0, 1050px);
+    position: relative;
+}
+.content {
+    @include flex;
+    align-items: flex-start;
+    height: 700px;
+    section {
+        padding: 20px;
+    }
+}
+.activity {
+    @include flex-vertical;
+    align-items: flex-start;
+    background-color: $gray-mid;
+    height: 100%;
+    section {
+        @include flex;
+        gap: 20px;
+    }
+    img {
+        transform: scale(1.5);
+    }
+    input {
+        @include card(white, 8px, 14px, 330px);
+        font-size: 16px;
+        color: $gray;
+    }
+}
+
+.hbox {
+    @include flex;
+    width: max-content;
+    gap: 40px;
+}
+
+.box {
+    @extend .hbox;
+    gap: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+}

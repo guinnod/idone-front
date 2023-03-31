@@ -1,0 +1,16 @@
+@import '@styles/mixins';
+@import '@styles/variables';
+
+.anchor {
+    @include flex;
+    @include card($gray-mid, 8px, 4px 4px 4px 10px, max-content);
+    gap: 18px;
+    font-size: 16px;
+    div {
+        @include flex-center;
+        @include card($main, 5px, 10px 12px, max-content);
+        img {
+            transform: scale(1.2);
+        }
+    }
+}

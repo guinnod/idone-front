@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SignIn, SignUp } from "../pages/Auth";
-import { Home } from "../pages/Home/Home";
+import { Home } from "../pages/Home";
 import { Tasks } from "../pages/Tasks";
 import { Workspace } from "../pages/Workspace";
 import Protected from "./Protected";
@@ -15,7 +15,6 @@ export const Routing = () => {
                     <Route index element={<Home />} />
                     <Route path="tasks" element={<Tasks />} />
                     <Route path="workspace" element={<Workspace />} />
-                    
                 </Route>
             </Routes>
         </BrowserRouter>

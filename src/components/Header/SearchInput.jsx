@@ -1,5 +1,5 @@
 import styles from './styles/_search-input.module.scss'
-import searchIcon from '../../assets/icons/search-normal.svg'
+import searchIcon from '@icons/search-normal.svg'
 export const SearchInput = () => {
     return (
         <div className={styles.anchor}>

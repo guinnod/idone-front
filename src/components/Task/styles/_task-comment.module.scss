@@ -1,8 +1,8 @@
-@import '../../../assets/styles/mixins';
-@import '../../../assets/styles/variables';
+@import "@styles/mixins";
+@import "@styles/variables";
 
 .anchor {
-    @include card(#e9ebec, 20px, 14px 20px 50px 20px, auto);
+    @include card($gray-mid, 20px, 14px 20px 50px 20px, auto);
     position: relative;
     margin: 20px 15px;
 }
@@ -17,7 +17,7 @@
     }
     span {
         font-size: 12px;
-        color: #9EA3A9;
+        color: $gray;
         margin-right: 5px;
     }
     div {

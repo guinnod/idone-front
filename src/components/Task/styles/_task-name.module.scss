@@ -1,5 +1,7 @@
-.anchor {
+@import "@styles/mixins";
+@import "@styles/variables";
 
+.anchor {
     & h1 {
         font-size: 24px;
         font-weight: 600;
@@ -7,6 +9,6 @@
         font-family: Poppins;
     }
     & p {
-        color: #696974;
+        color: $dark-light;
     }
 }

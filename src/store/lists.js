@@ -1,4 +1,4 @@
-import colors from '../assets/styles/colors.json'
+import colors from '@styles/colors.json'
 
 export const lists = [
     {

@@ -1,0 +1,19 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.anchor {
+    @include flex;
+    font-size: 16px;
+    div {
+        @include flex;
+    }
+    img {
+        margin-top: -1px;
+    }
+    width: 200px;
+    margin: 25px 0;
+}
+
+.text {
+    color: $gray;
+}

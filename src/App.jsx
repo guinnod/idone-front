@@ -1,11 +1,9 @@
-import { Routing } from "./context/Routing"
-import { Home } from "./pages/Home/Home"
-import { Tasks } from "./pages/Tasks"
+import { AddTask } from '@layouts/AddTask'
 
 function App() {
   return (
     <div className="App">
-      <Tasks />
+      <AddTask />
     </div>
   )
 }

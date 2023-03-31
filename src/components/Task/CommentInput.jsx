@@ -1,5 +1,5 @@
 import styles from './styles/_comment-input.module.scss'
-import arrowIcon from '../../assets/icons/fi_arrow-up.svg'
+import arrowIcon from '@icons/fi_arrow-up.svg'
 import { UserPhoto } from '../Header/UserPhoto'
 
 export const CommentInput = () => {
@@ -9,12 +9,10 @@ export const CommentInput = () => {
             <div className={styles.photo}>
                 <UserPhoto />
             </div>
-
             <div className={styles.area}>
                 <input type="text" placeholder='Add a comment' />
-                <img src={arrowIcon} alt="" />
+                <img src={arrowIcon} alt="arrow" />
             </div>
-
         </div>
     )
 }

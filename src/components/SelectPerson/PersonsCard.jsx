@@ -1,4 +1,4 @@
-import closeIcon from '../../assets/icons/ic_Close.svg'
+import closeIcon from '@icons/ic_Close.svg'
 import { LoginButton } from '../Login/LoginButton'
 import { SelectPerson } from './SelectPerson'
 import styles from './styles/_persons-card.module.scss'

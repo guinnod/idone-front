@@ -1,9 +1,9 @@
 import styles from './styles/_login-input.module.scss'
-export const LoginInput = ({ placeholder }) => {
+export const LoginInput = ({ placeholder, type }) => {
     return (
         <div className={styles.anchor}>
-            <label className={styles.label} htmlFor='email'>{placeholder}</label>
-            <input className={styles.input} type="email" name="email" id="email" />
+            <label className={styles.label} htmlFor={type}>{placeholder}</label>
+            <input className={styles.input} type={type} name={type} id={type} />
         </div>
     )
 } 

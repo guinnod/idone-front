@@ -5,11 +5,11 @@ import { InviteButton } from './InviteButton'
 import { Logo } from "./Logo"
 import { SearchInput } from "./SearchInput"
 import { UserPhoto } from "./UserPhoto"
-import menuIcon from '../../assets/icons/menu.svg'
-import homeIcon from '../../assets/icons/home.svg'
-import addIcon from '../../assets/icons/add.svg'
-import notifyIcon from '../../assets/icons/notify.svg'
-import colors from '../../assets/styles/colors.json'
+import menuIcon from '@icons/menu.svg'
+import homeIcon from '@icons/home.svg'
+import addIcon from '@icons/add.svg'
+import notifyIcon from '@icons/notify.svg'
+import colors from '@styles/colors.json'
 
 const headerContent = <div className={styles.anchor} >
     <div>

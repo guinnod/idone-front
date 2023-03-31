@@ -2,9 +2,9 @@ import styles from './styles/_card.module.scss'
 import { OtherUsers } from '../Header/OtherUsers'
 import { CardOption } from './CardOption'
 import { CardProgress } from './CardProgress'
-import checkIcon from '../../assets/icons/fi_check-circle.svg'
-import messageIcon from '../../assets/icons/message.svg'
-import paperclipIcon from '../../assets/icons/paperclip.svg'
+import checkIcon from '@icons/fi_check-circle.svg'
+import messageIcon from '@icons/message.svg'
+import paperclipIcon from '@icons/paperclip.svg'
 
 export const Card = ({ color, name, value, users, comments, steps, paperclip }) => {
     const commentsSize = comments ? comments.length : 0;

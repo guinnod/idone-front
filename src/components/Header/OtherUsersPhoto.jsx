@@ -1,10 +1,9 @@
 import styles from './styles/_other-users-photo.module.scss'
-export const OtherUsersPhoto = ({ amount }) => {
+import addIcon from '@icons/add.svg'
+export const OtherUsersPhoto = ({ amount, isAdd }) => {
     return (
         <div className={styles.anchor}>
-            <div>
-                +{amount}
-            </div>
+            {isAdd ? <img src={addIcon} alt="add" /> : `+${amount}`}
         </div>
     )
 }

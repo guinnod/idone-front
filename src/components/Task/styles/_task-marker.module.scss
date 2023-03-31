@@ -1,10 +1,10 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/mixins";
+@import "@styles/mixins";
+@import "@styles/variables";
 
 .anchor {
     @include flex;
     @include card(none, 8px, 5px 10px, max-content);
-    border: 1px solid #e7e7e7;
-    color: #9ea3a9;
+    border: 1px solid $gray-light;
+    color: $gray;
     font-family: Poppins;
 }

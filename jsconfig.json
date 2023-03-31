@@ -1,0 +1,67 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@context/*": [
+                "src/context/*"
+            ],
+            "@layouts/*": [
+                "src/layouts/*"
+            ],
+            "@pages/*": [
+                "src/pages/*"
+            ],
+            "@store/*": [
+                "src/store/*"
+            ],
+            "@utils/*": [
+                "src/utils/*"
+            ],
+            "@/*": [
+                "src/*"
+            ],
+            "@icons/*": [
+                "src/assets/icons/*"
+            ],
+            "@images/*": [
+                "src/assets/images/*"
+            ],
+            "@styles/*": [
+                "src/assets/styles/*"
+            ],
+            "@Board/*": [
+                "src/components/Board/*"
+            ],
+            "@CardList/*": [
+                "src/components/CardList/*"
+            ],
+            "@Header/*": [
+                "src/components/Header/*"
+            ],
+            "@Login/*": [
+                "src/components/Login/*"
+            ],
+            "@Menu/*": [
+                "src/components/Menu/*"
+            ],
+            "@SelectPerson/*": [
+                "src/components/SelectPerson/*"
+            ],
+            "@Task/*": [
+                "src/components/Task/*"
+            ],
+            "@layoutsStyles/*": [
+                "src/layouts/styles/*"
+            ],
+            "@pagesStyles/*": [
+                "src/pages/styles/*"
+            ]
+        }
+    }
+}

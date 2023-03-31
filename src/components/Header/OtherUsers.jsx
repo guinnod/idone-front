@@ -2,24 +2,24 @@ import styles from './styles/_other-users.module.scss'
 import { OtherUsersPhoto } from './OtherUsersPhoto'
 import { UserPhoto } from './UserPhoto';
 
-export const OtherUsers = ({ users, limit }) => {
+export const OtherUsers = ({ users, limit, isAdd }) => {
     let isLast;
     let amount;
     if (users) {
         isLast = users.length > limit
         amount = users.length - limit
-        if (amount == 0) {
-            amount = ''
+        if (isLast) {
+            users = users.slice(0, limit)
         }
     }
     return (
         <div className={styles.anchor} >
             {users ? users.map((e, key) => {
                 return (
-                    <UserPhoto photoSrc={e} key={key} />
+                    <UserPhoto src={e} key={key} />
                 );
             }) : <></>}
-            {isLast ? <OtherUsersPhoto amount={amount} /> : <></>}
+            {isLast ? <OtherUsersPhoto amount={amount} isAdd={isAdd}/> : isAdd ? <OtherUsersPhoto isAdd={true}/> : <></>}
         </div>
     )
 }

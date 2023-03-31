@@ -1,8 +1,8 @@
 import { Content } from './Content'
 import styles from './styles/_menu.module.scss'
-import svg1 from '../../assets/icons/Group_4.svg'
-import svg2 from '../../assets/icons/clipboard-tick.svg'
-import svg3 from '../../assets/icons/Group_3.svg'
+import svg1 from '@icons/Group_4.svg'
+import svg2 from '@icons/clipboard-tick.svg'
+import svg3 from '@icons/Group_3.svg'
 import { useState } from 'react'
 export const Menu = () => {
     const contents = [{ svg: svg1, text: 'Boards' },
