@@ -1,0 +1,14 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.anchor {
+    @include card(white, 14px, auto, max-content);
+    position: relative;
+}
+
+.header {
+    @include flex;
+    padding: 20px 23px;
+    font-weight: 600;
+    font-size: 20px;
+}

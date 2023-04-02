@@ -1,0 +1,23 @@
+@import '@styles/mixins';
+@import '@styles/variables';
+
+.anchor {
+    display: flex;
+    gap: 16px;
+}
+
+.header {
+    @include flex;
+    justify-content: flex-start;
+    h4 {
+        margin: 0;
+    }
+    span {
+        color: $gray;
+        font-size: 12px;
+    }
+}
+
+.content {
+    @include card(white, 8px, 14px, 360px);
+}

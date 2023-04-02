@@ -13,16 +13,6 @@
     }
 }
 
-.area {
-    @include flex;
-    width: 100%;
-    position: relative;
-    img {
-        position: absolute;
-        right: 10px;
-    }
-}
-
 .photo {
     position: absolute;
     left: -20px;

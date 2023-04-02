@@ -1,0 +1,12 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.anchor {
+    @include flex;
+    position: relative;
+    width: 100%;
+    img {
+        position: absolute;
+        right: 10px;
+    }
+}

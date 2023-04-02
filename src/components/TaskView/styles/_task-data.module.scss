@@ -6,7 +6,7 @@
     justify-content: flex-start;
     gap: 80px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #E9EBEC;
+    border-bottom: 2px solid $gray-mid;
     & > div > div {
         @include flex;
         height: 32px;

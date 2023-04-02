@@ -1,5 +1,5 @@
 import styles from './styles/_login.module.scss'
-import { LoginButton } from './LoginButton'
+import { LoginButton } from '../ui/Button'
 import { LoginInput } from './LoginInput'
 import { LoginOptions } from './LoginOptions'
 

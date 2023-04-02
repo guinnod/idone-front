@@ -1,17 +1,17 @@
+import { Window } from '@components/ui/Window'
 import { CommentInput } from '../components/TaskEdit/CommentInput'
 import { TaskComment } from '../components/TaskView/TaskComment'
 import { TaskData } from '../components/TaskView/TaskData'
 import { TaskDescription } from '../components/TaskView/TaskDescription'
-import { TaskHeader } from '../components/TaskView/TaskHeader'
+import { TaskMarker } from '../components/TaskView/TaskMarker'
 import { TaskName } from '../components/TaskView/TaskName'
 import styles from './styles/_task-view.module.scss'
 
 export const TaskView = () => {
     const comments = [1];
     return (
-        <div className={styles.anchor}>
-            <TaskHeader />
-            <section>
+        <Window title={<TaskMarker />}>
+            <section className={styles.anchor}>
                 <TaskName />
                 <TaskData />
                 <TaskDescription />
@@ -23,6 +23,6 @@ export const TaskView = () => {
                 </div>
                 <CommentInput />
             </section>
-        </div>
+        </Window>
     )
 }

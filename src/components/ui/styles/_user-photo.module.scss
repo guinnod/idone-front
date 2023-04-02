@@ -4,10 +4,6 @@
 $user-photo-size: 32px;
 
 .anchor {
-    @include flex-center;
     @include circle($user-photo-size);
     object-fit: cover;
-    & > img {
-        @include circle($user-photo-size);
-    }
 }

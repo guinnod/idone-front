@@ -9,6 +9,7 @@ import menuIcon from '@icons/menu.svg'
 import homeIcon from '@icons/home.svg'
 import addIcon from '@icons/add.svg'
 import notifyIcon from '@icons/notify.svg'
+import userPhoto from '@images/userPhoto.jpg'
 import colors from '@styles/colors.json'
 
 const headerContent = <div className={styles.anchor} >
@@ -21,7 +22,7 @@ const headerContent = <div className={styles.anchor} >
     <div>
         <SearchInput />
         <CircleButton svg={notifyIcon} color={colors.gray_mid} />
-        <UserPhoto />
+        <UserPhoto src={userPhoto}/>
     </div>
 </div>
 

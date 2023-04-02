@@ -5,24 +5,12 @@
     h3 {
         margin: 10px 0;
     }
-    section {
-        @include flex;
+    span {
+        color: $gray;
     }
-    div {
-        @include flex;
-    }
-}
-
-.box {
-    padding: 0 20px;
-    color: $gray;
 }
 
 .progress {
-    justify-content: flex-start !important;
     color: $gray;
     font-size: 16px;
-    & > {
-        width: 450px;
-    }
 }

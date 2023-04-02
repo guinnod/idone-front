@@ -1,0 +1,21 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.anchor {
+    > div {
+        @include flex-center;
+        padding: 40px 20px;
+    }
+
+    input {
+        background: $gray-mid;
+    }
+}
+.avatar {
+    position: relative;
+    span {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+}

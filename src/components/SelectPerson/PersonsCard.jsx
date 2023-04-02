@@ -1,5 +1,5 @@
 import closeIcon from '@icons/ic_Close.svg'
-import { LoginButton } from '../Login/LoginButton'
+import { Button } from '@ui/Button'
 import { SelectPerson } from './SelectPerson'
 import styles from './styles/_persons-card.module.scss'
 export const PersonsCard = () => {
@@ -19,7 +19,9 @@ export const PersonsCard = () => {
                 <div>
                     Cancel
                 </div>
-                <LoginButton text='Add' />
+                <Button>
+                    Add
+                </Button>
             </div>
         </div>
     )

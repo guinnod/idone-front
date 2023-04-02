@@ -1,0 +1,8 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.anchor {
+    @include flex-vertical;
+    align-items: flex-start;
+    justify-content: flex-start;
+}

@@ -18,8 +18,10 @@
 @mixin circle($size) {
     @include flex-center;
     border-radius: 50%;
-    width: $size;
+    aspect-ratio: 1 / 1;
     height: $size;
+    min-height: $size;
+    width: $size;
     min-width: $size;
 }
 
