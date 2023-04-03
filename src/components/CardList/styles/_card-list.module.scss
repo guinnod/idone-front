@@ -3,9 +3,7 @@
 
 
 .anchor {
-    @include flex;
     @include card($gray-mid, 8px, 10px, 280px);
-    flex-direction: column;
     & > div {
         width: 100%;
     }

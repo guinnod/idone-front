@@ -2,7 +2,7 @@ import styles from './styles/_home.module.scss'
 import colors from '@styles/colors.json'
 import { Header } from '../components/Header'
 import { Board } from '../components/Board/Board'
-import { Menu } from '../components/Menu'
+import { Menu } from '../components/Menu/Menu'
 export const Home = () => {
     const boards = [{ name: 'Uni project', color: colors.blue_pacific }, { name: 'UI Kit', color: colors.main }, { name: 'Illustration', color: colors.red }, { name: 'Design System', color: colors.purple }]
     return (

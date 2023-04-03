@@ -2,15 +2,11 @@
 @import "@styles/variables";
 
 .anchor {
-    @include flex;
     @include card(white, 6px 6px 0px 0px, 0 10px 0 20px, auto);
     position: relative;
     height: 40px;
     font-weight: 500;
     font-size: 16px;
-    div {
-        @include flex;
-    }
     img {
         transform: scale(1.2);
     }

@@ -1,7 +1,9 @@
 import styles from './styles/_login.module.scss'
-import { LoginButton } from '../ui/Button'
+import { Button } from '@ui/Button'
 import { LoginInput } from './LoginInput'
 import { LoginOptions } from './LoginOptions'
+import { Logo } from '@components/ui/Logo'
+
 
 export const Login = ({ text, isForgot, placeholder }) => {
     return (
@@ -11,7 +13,9 @@ export const Login = ({ text, isForgot, placeholder }) => {
             <LoginInput placeholder='Your Email / Username' type="email"/>
             <LoginInput placeholder={placeholder} type="password"/>
             <LoginOptions isForgot={isForgot} />
-            <LoginButton text={text} />
+            <Button>
+                {text}
+            </Button>
         </div>
     )
 }

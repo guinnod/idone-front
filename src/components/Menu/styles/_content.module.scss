@@ -2,9 +2,7 @@
 @import "@styles/variables";
 
 .anchor {
-    @include flex;
     @include card(inherit, 6px, 10px, 215px);
-    gap: 15px;
     justify-content: flex-start;
     font-size: 16px;
     font-weight: 300;
@@ -13,4 +11,4 @@
 .icon {
     @include flex-center;
     width: 20px;
-}
+} 

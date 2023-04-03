@@ -1,7 +1,7 @@
 import styles from './styles/_button.module.scss'
-export const Button = ({ style, onClick, children }) => {
+export const Button = ({ style, onClick, children, className }) => {
     return (
-        <div className={styles.anchor} style={style} onClick={onClick}>
+        <div className={`${styles.anchor} ${className}`} style={style} onClick={onClick}>
             {children}
         </div>
     )

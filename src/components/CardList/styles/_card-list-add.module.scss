@@ -4,6 +4,7 @@
 .anchor {
     @include flex-center;
     border: 2px dashed $gray;
+    color: $gray;
     border-style: dashed dashed dashed dashed;
     border-radius: 6px;
     height: 40px;

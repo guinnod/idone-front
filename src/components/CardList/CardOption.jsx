@@ -1,10 +1,11 @@
+import { Box } from '@components/ui/Box'
 import styles from './styles/_card-option.module.scss'
 
 export const CardOption = ({ data, svg }) => {
     return (
-        <div className={styles.anchor}>
+        <Box className={styles.anchor}>
             <div className={styles.data}>{data}</div>
             <img src={svg} />
-        </div>
+        </Box>
     )
 }
