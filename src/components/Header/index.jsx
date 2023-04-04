@@ -14,6 +14,7 @@ import colors from '@styles/colors.json'
 import { useDispatch, useSelector } from 'react-redux'
 import { tasksActions } from '@store/tasks'
 import { Profile } from '@layouts/Profile'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
     const dispatch = useDispatch();
@@ -25,8 +26,11 @@ export const Header = () => {
         <>
             <div className={styles.anchor} >
                 <div>
+
                     <CircleButton svg={menuIcon} color={colors.gray_mid} />
-                    <CircleButton svg={homeIcon} color={colors.gray_mid} />
+                    <Link to='/'>
+                        <CircleButton svg={homeIcon} color={colors.gray_mid} />
+                    </Link>
                     <CircleButton svg={addIcon} color={colors.main} />
                 </div>
                 <Logo />
