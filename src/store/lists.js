@@ -1,5 +1,5 @@
 import colors from '@styles/colors.json'
-
+import userPhoto from '@images/userPhoto.jpg'
 export const lists = [
     {
         color: colors.azure,
@@ -9,7 +9,8 @@ export const lists = [
                 name: "Name of the task",
                 color: colors.azure,
                 value: 35,
-                comments: [1, 2, 3, 4]
+                comments: [1, 2, 3, 4], 
+                users: [userPhoto, userPhoto, userPhoto]
             }, {
                 name: "Name of the task",
                 color: colors.green,

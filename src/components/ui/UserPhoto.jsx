@@ -1,7 +1,7 @@
 import styles from './styles/_user-photo.module.scss'
 
-export const UserPhoto = ({ src, width }) => {
+export const UserPhoto = ({ src, width, onClick }) => {
     return (
-        <img className={styles.anchor} style={width ? { minWidth: width, minHeight: width } : {}} src={src} alt="user" />
+        <img onClick={onClick} className={styles.anchor} style={width ? { minWidth: width, minHeight: width } : {}} src={src} alt="user" />
     )
 }

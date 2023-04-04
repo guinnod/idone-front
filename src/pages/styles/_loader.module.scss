@@ -4,6 +4,7 @@
 .anchor {
     @include flex-vertical;
     color: $main;
+    padding: 10px;
 }
 
 .text {

@@ -11,7 +11,7 @@ export const PersonsCard = () => {
     const buttonWidth = 150
     return (
         <Window title='Assign developer'>
-            <List gap={20} style={{ padding: '0 40px 40px 40px' }}>
+            <List gap={40} style={{ padding: '20px 40px' }}>
                 <form name="" id="">
                     <List>
                         {persons.map((e, key) => {
@@ -25,7 +25,7 @@ export const PersonsCard = () => {
                     <Button style={{ background: 'white', color: colors.dark, width: buttonWidth, aspectRatio: '3/1' }}>
                         Cancel
                     </Button>
-                    <Button style={{ width: buttonWidth, aspectRatio: '3/1' }}>
+                    <Button style={{ width: buttonWidth, aspectRatio: '3/1', background: colors.main }}>
                         Add
                     </Button>
                 </Box>

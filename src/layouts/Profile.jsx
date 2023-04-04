@@ -19,7 +19,7 @@ export const Profile = () => {
     const style = {
         'padding': '12px 18px',
         'width': '400px',
-        'border-radius': '5px'
+        'borderRadius': '5px'
     }
     return (
         <Window title='Account'>
@@ -38,7 +38,7 @@ export const Profile = () => {
                             )
                         })}
                     </List>
-                    <Button style={{ width: '400px', borderRadius: '5px' }}>
+                    <Button style={{ width: '400px', borderRadius: '5px', background: colors.main }}>
                         Save
                     </Button>
                 </List>

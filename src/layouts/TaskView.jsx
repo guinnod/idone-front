@@ -9,9 +9,10 @@ import styles from './styles/_task-view.module.scss'
 
 export const TaskView = () => {
     const comments = [1];
+
     return (
         <Window title={<TaskMarker />}>
-            <section className={styles.anchor}>
+            <section className={styles.anchor} onClick={(e) => { e.stopPropagation() }}>
                 <TaskName />
                 <TaskData />
                 <TaskDescription />

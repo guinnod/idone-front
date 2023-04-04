@@ -5,11 +5,18 @@ import { Progress } from '@ui/Progress'
 import checkIcon from '@icons/fi_check-circle.svg'
 import messageIcon from '@icons/message.svg'
 import paperclipIcon from '@icons/paperclip.svg'
+import { useDispatch } from 'react-redux'
+import { tasksActions } from '@store/tasks'
 
 export const Card = ({ color, name, value, users, comments, steps, paperclip }) => {
+    const dispatch = useDispatch();
+    const change = () => {
+        dispatch(tasksActions.change("TaskView"));
+    }
+
     const commentsSize = comments ? comments.length : 0;
     return (
-        <div className={styles.anchor}>
+        <div className={styles.anchor} onClick={() => { change() }}>
             {name}
             <Progress value={value} size={150} color={color} />
             <div className={styles.options}>
@@ -17,7 +24,7 @@ export const Card = ({ color, name, value, users, comments, steps, paperclip }) 
                 {steps ? <CardOption data={`${steps.current}/${steps.max}`} svg={checkIcon} /> : <></>}
                 {paperclip ? <CardOption data={paperclip} svg={paperclipIcon} /> : <></>}
             </div>
-            {users ? <OtherUsers users={users} /> : <></>}
+            <OtherUsers users={users ? users : []} limit={2} isAdd/>
         </div>
     )
 }

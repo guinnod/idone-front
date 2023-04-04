@@ -2,12 +2,12 @@
 @import "@styles/variables";
 
 .anchor {
-    @include flex-center;
-    border: 2px dashed $gray;
+    border: 1px dashed $gray;
     color: $gray;
-    border-style: dashed dashed dashed dashed;
+    border-style: dashed;
     border-radius: 6px;
     height: 40px;
     font-size: 16px;
     font-weight: 300;
+    gap: 5px;
 }

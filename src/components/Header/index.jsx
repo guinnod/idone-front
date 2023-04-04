@@ -11,28 +11,39 @@ import addIcon from '@icons/add.svg'
 import notifyIcon from '@icons/notify.svg'
 import userPhoto from '@images/userPhoto.jpg'
 import colors from '@styles/colors.json'
-
-const headerContent = <div className={styles.anchor} >
-    <div>
-        <CircleButton svg={menuIcon} color={colors.gray_mid} />
-        <CircleButton svg={homeIcon} color={colors.gray_mid} />
-        <CircleButton svg={addIcon} color={colors.main} />
-    </div>
-        <Logo />
-    <div>
-        <SearchInput />
-        <CircleButton svg={notifyIcon} color={colors.gray_mid} />
-        <UserPhoto src={userPhoto}/>
-    </div>
-</div>
+import { useDispatch, useSelector } from 'react-redux'
+import { tasksActions } from '@store/tasks'
+import { Profile } from '@layouts/Profile'
 
 export const Header = () => {
-    return (headerContent)
+    const dispatch = useDispatch();
+    const change = () => {
+        dispatch(tasksActions.change("Profile"));
+    }
+    const isWindow = useSelector(state => state.tasks.isWindow)
+    return (
+        <>
+            <div className={styles.anchor} >
+                <div>
+                    <CircleButton svg={menuIcon} color={colors.gray_mid} />
+                    <CircleButton svg={homeIcon} color={colors.gray_mid} />
+                    <CircleButton svg={addIcon} color={colors.main} />
+                </div>
+                <Logo />
+                <div>
+                    <SearchInput />
+                    <CircleButton svg={notifyIcon} color={colors.gray_mid} />
+                    <UserPhoto src={userPhoto} onClick={change} />
+                </div>
+            </div>
+            {isWindow == "Profile" ? <Profile /> : <></>}
+        </>
+    )
 }
 export const HeaderExtended = () => {
     return (
         <section>
-            {headerContent}
+            <Header />
             <div className={styles.anchor}>
                 <div>
                     <div className={styles.text}>
@@ -42,7 +53,7 @@ export const HeaderExtended = () => {
                 </div>
 
                 <div>
-                    <OtherUsers users={[]}/>
+                    <OtherUsers users={[userPhoto, userPhoto, userPhoto, userPhoto, userPhoto, userPhoto]} limit={4} />
                     <InviteButton />
                 </div>
             </div>
