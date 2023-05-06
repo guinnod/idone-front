@@ -4,6 +4,7 @@ import { Home } from "../pages/Home";
 import { Tasks } from "../pages/Tasks";
 import { Workspace } from "../pages/Workspace";
 import Protected from "./Protected";
+import {ConfirmPage} from "@Login/ConfirmPage";
 
 export const Routing = () => {
     return (
@@ -11,6 +12,7 @@ export const Routing = () => {
             <Routes>
                 <Route path="signin" element={<SignIn />} />
                 <Route path="signup" element={<SignUp />} />
+                <Route path="confirm" element={<ConfirmPage />} />
                 <Route path="/" element={<Protected isAuthorized />}>
                     <Route index element={<Home />} />
                     <Route path="tasks" element={<Tasks />} />

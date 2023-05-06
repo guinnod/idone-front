@@ -3,9 +3,24 @@
 .anchor {
     position: relative;
 }
+$paddingy: 10px;
+$paddingx: 20px;
+$borderr: 10px;
 .input {
-    @include card(none, 10px, 10px 20px, 500px);
+    @include card(none, $borderr, $paddingy $paddingx, 500px);
     border: 1px solid $gray;
+    span {
+        float: right;
+        background: $main;
+        color: white;
+        margin-inline: -$paddingx;
+        margin-block: -$paddingy;
+        padding: 5px 20px;
+        height: 37px;
+        @include flex-center;
+        border-top-right-radius: $borderr - 2;
+        border-bottom-right-radius: $borderr - 2;
+    }
 }
 
 .label {
@@ -15,4 +30,13 @@
     background: white;
     padding: 0 4px;
     color: $gray;
+}
+
+.hidden {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin-inline: -$paddingx;
+    margin-block: -$paddingy;
 }

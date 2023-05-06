@@ -82,6 +82,9 @@
             ],
             "@componentsTaskEditStyles/*": [
                 "src/components/TaskEdit/styles/*"
+            ],
+            "@api/*": [
+                "src/api/*"
             ]
         }
     }
