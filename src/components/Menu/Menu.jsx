@@ -6,18 +6,16 @@ import svg3 from '@icons/Group_3.svg'
 import {useEffect, useState} from 'react'
 import { List } from '@components/ui/List'
 import axios from "axios";
+import {get} from "@api/index.js";
+
 export const Menu = () => {
 
     const contents = [{ svg: svg1, text: 'Boards' },
     { svg: svg2, text: 'My tasks' }]
     const [workspaces, sW] = useState([{ svg: svg3, text: 'soft enj' }, { svg: svg3, text: 'soft enj' }])
-    const headers = {
-        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgzMzU1MzE1LCJpYXQiOjE2ODMyNjg5MTUsImp0aSI6ImM3YzRjZjA1ODI1NDRjNGI5YmFhYjAzMTA0NDMyOThjIiwidXNlcl9pZCI6Mn0.ngBGP5cz151hD7K0LQzsPJHCxwfQng2gaYYGFNXoyWw`
-    };
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/subject/', {headers})
+        get({path: 'subject', isAuth: true})
             .then((res)=>{
-
                 let sbs = res.data
                 let works = []
                 for(let i = 0; i < sbs.length; i++) {

@@ -1,18 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { SignIn, SignUp } from "../pages/Auth";
-import { Home } from "../pages/Home";
-import { Tasks } from "../pages/Tasks";
-import { Workspace } from "../pages/Workspace";
+import { Home } from "@pages/Home";
+import { Tasks } from "@pages/Tasks";
+import { Workspace } from "@pages/Workspace";
 import Protected from "./Protected";
-import {ConfirmPage} from "@Login/ConfirmPage";
+import {Login} from "@pages/Login.jsx";
+import {Register} from "@pages/Register";
+import {Confirm} from "@pages/Confirm";
 
 export const Routing = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="signin" element={<SignIn />} />
-                <Route path="signup" element={<SignUp />} />
-                <Route path="confirm" element={<ConfirmPage />} />
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
+                <Route path="confirm" element={<Confirm />} />
                 <Route path="/" element={<Protected isAuthorized />}>
                     <Route index element={<Home />} />
                     <Route path="tasks" element={<Tasks />} />

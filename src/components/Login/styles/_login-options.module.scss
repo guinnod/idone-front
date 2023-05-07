@@ -5,6 +5,9 @@
     font-size: 14px;
     color: $gray;
     width: 500px;
+    * {
+        cursor: pointer;
+    }
     a {
         font-weight: 500;
         color: $gray;
