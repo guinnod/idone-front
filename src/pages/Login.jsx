@@ -10,6 +10,7 @@ import {setJwt} from "@utils/localStorageHelper.js";
 import {useState} from "react";
 
 export const Login = () => {
+    const [isRedBorder, setIsRedBorder] = useState(false);
     const auth = () => {
         const email = document.getElementById("email");
         if (!email.validity.valid) {
@@ -28,7 +29,7 @@ export const Login = () => {
         const email = document.getElementById("email");
         setIsRedBorder(!email.validity.valid);
     }
-    const [isRedBorder, setIsRedBorder] = useState(false);
+
     return (
         <form id="loginForm" className={styles.anchor}>
             <Logo/>

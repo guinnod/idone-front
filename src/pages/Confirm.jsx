@@ -55,8 +55,7 @@ export const Confirm = ({isCreating}) => {
                     color: 'white',
                     cursor: isConfirming ? 'not-allowed' : 'pointer'
                 }}
-                        onClick={submitForm}
-                >
+                        onClick={submitForm}>
                     Sign up
                 </Button>
             </List>

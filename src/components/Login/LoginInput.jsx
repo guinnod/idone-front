@@ -11,10 +11,10 @@ export const LoginInput = (props) => {
 }
 
 export const FileInput = (props) => {
-    const [fileName, setFileName] = useState("Choose file...")
+    const [fileName, setFileName] = useState("Choose a photo...")
     const handleSetFileName = () => {
         const e = document.getElementById(props.id)
-        const filename = e.files.length > 0 ? e.files[0].name : "Choose file...";
+        const filename = e.files.length > 0 ? e.files[0].name : "Choose a photo...";
         setFileName(filename);
     }
     return (
