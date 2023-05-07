@@ -7,7 +7,7 @@ import {List} from "@ui/List";
 import {useState} from "react";
 import {post} from "@api/index.js";
 
-export const Confirm = ({isCreating}) => {
+export const Confirm = () => {
     const [isConfirming, setIsConfirming] = useState(true);
     const handleConfirm = () => {
         post({path:'temp'})
