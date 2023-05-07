@@ -5,8 +5,18 @@
     @include flex;
     position: relative;
     width: 100%;
-    img {
+    div {
+        @include flex;
         position: absolute;
         right: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 5px;
+    }
+    img {
+
+    }
+    div:hover {
+        background: $background;
     }
 }

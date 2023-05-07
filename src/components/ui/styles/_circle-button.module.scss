@@ -3,4 +3,5 @@
 
 .anchor {
     @include circle(32px);
+    cursor: pointer;
 }
