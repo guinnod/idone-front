@@ -17,6 +17,11 @@ export const get = ({path, headers, isAuth}) => {
     }
     if (isAuth) {
         headers.Authorization = getJwt();
+        if (!headers.Authorization) {
+            return new Promise((resolve, reject) => {
+                resolve({data: {authenticated: false}});
+            });
+        }
     }
     return axios.get(`http://127.0.0.1:8000/api/${path}/`, {headers})
 }
