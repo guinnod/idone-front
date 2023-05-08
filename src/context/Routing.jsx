@@ -8,6 +8,7 @@ import {Register} from "@pages/Register";
 import {Confirm} from "@pages/Confirm";
 import {Forgot} from "@pages/Forgot.jsx";
 import {Reset} from "@pages/Reset.jsx";
+import {ChangePassword} from "@pages/ChangePassword";
 
 export const Routing = () => {
     return (
@@ -20,6 +21,7 @@ export const Routing = () => {
                 <Route path="reset" element={<Reset />} />
                 <Route path="/" element={<Protected isAuthorized />}>
                     <Route index element={<Home />} />
+                    <Route path="change-password" element={<ChangePassword />}/>
                     <Route path="tasks" element={<Tasks />} />
                     <Route path="workspace" element={<Workspace />} />
                 </Route>

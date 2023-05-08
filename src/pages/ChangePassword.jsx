@@ -5,7 +5,7 @@ import {LoginInput} from "@Login/LoginInput";
 import {Button} from "@ui/Button";
 import {List} from "@ui/List";
 
-export const Reset = () => {
+export const ChangePassword = () => {
 
     const submitForm = () => {
         const password = document.getElementById("password");
@@ -20,6 +20,8 @@ export const Reset = () => {
             <Logo/>
             <h1 className={styles.text}>Reset password</h1>
             <List gap={30}>
+                <LoginInput toptext="Current password" type="password" id="passwordCurrent" maxLength={"20"} minLength={"8"}
+                            style={{cursor: 'text'}}/>
                 <LoginInput toptext="New password" type="password" id="password" maxLength={"20"} minLength={"8"}
                             style={{cursor: 'text'}}/>
                 <LoginInput toptext="Repeat password" type="password" id="passwordRepeat" maxLength={"20"} minLength={"8"}
@@ -29,7 +31,7 @@ export const Reset = () => {
                     width: '500px',
                     color: 'white',
                 }} onClick={submitForm}>
-                    Reset password
+                    Sign up
                 </Button>
             </List>
         </div>
