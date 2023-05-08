@@ -13,7 +13,7 @@ export const Window = ({ title, children }) => {
             <div className={styles.anchor} onClick={(e) => { e.stopPropagation() }}>
                 <div className={styles.header} >
                     {title}
-                    <img src={closeIcon} alt="close" onClick={change} />
+                    <img src={closeIcon} alt="close" style={{cursor: 'pointer'}} onClick={change} />
                 </div>
                 {children}
             </div>

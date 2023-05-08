@@ -8,8 +8,9 @@ import {List} from "@ui/List";
 import {post} from "@api/index.js";
 import {setJwt} from "@utils/localStorageHelper.js";
 import {useState} from "react";
-
+import {useNavigate} from "react-router-dom"
 export const Login = () => {
+    const navigate = useNavigate();
     const [isRedBorder, setIsRedBorder] = useState(false);
     const auth = () => {
         const email = document.getElementById("email");
@@ -21,9 +22,12 @@ export const Login = () => {
         const data = {
             email: email.value, password: password.value
         }
-        // post({path: 'login', data: data})
-        //     .then(res => console.log(res.data))
-        //     .catch(error => alert(error.response.data.error))
+        post({path: 'login', data: data})
+            .then(res => {
+                setJwt(res.data.access);
+                navigate("/");
+            })
+            .catch(error => alert(error.response.data.error))
     }
     const checkEmailValidation = () => {
         const email = document.getElementById("email");
