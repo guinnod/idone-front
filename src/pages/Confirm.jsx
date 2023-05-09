@@ -4,18 +4,28 @@ import {Logo} from "@ui/Logo";
 import {LoginInput} from "@Login/LoginInput";
 import {Button} from "@ui/Button";
 import {List} from "@ui/List";
-import {useState} from "react";
-import {post} from "@api/index.js";
+import {useState, useEffect} from "react";
+import {post, put} from "@api/index.js";
 
 export const Confirm = () => {
     const [isConfirming, setIsConfirming] = useState(true);
+    const [isRedBorderEmail, setIsRedBorderEmail] = useState(false);
+    useEffect(() => {
+        document.getElementById("email").value = sessionStorage.getItem('email')
+    }, [])
     const handleConfirm = () => {
-        post({path:'temp'})
-            .then(res=>{
+        post({
+            path: 'confirm', data: {
+                'token': document.getElementById("confirmation").value,
+                'email': document.getElementById("email").value
+            }
+        })
+            .then(res => {
                 console.log(res.data);
+                sessionStorage.setItem('token', res.data.token)
                 setIsConfirming(false);
             })
-            .catch(error=>console.log(error))
+            .catch(error => alert(error.response.data.error))
     }
     const submitForm = () => {
         const password = document.getElementById("password");
@@ -24,12 +34,30 @@ export const Confirm = () => {
             alert("Passwords don’t match")
             return;
         }
+        put({
+            path: 'confirm', data: {
+                'token': sessionStorage.getItem('token'),
+                'email': document.getElementById("email").value,
+                'password': password.value
+            }
+        })
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(error => alert(error.response.data))
+    }
+    const checkEmailValidation = () => {
+        const email = document.getElementById("email");
+        setIsRedBorderEmail(!email.validity.valid);
     }
     return (
         <div id="confirmForm" className={styles.anchor}>
             <Logo/>
             <h1 className={styles.text}>Create an account</h1>
             <List gap={30}>
+                <LoginInput style={{borderColor: isRedBorderEmail ? colors.red : colors.gray}}
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" onChange={checkEmailValidation}
+                            toptext="E-mail" type="email" id="email" name="email" required/>
                 <LoginInput toptext="Confirmation code" id="confirmation" name="confirmation"
                             style={{cursor: !isConfirming ? 'not-allowed' : 'text'}}
                             disabled={!isConfirming}/>

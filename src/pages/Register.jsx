@@ -6,10 +6,12 @@ import {Button} from "@ui/Button";
 import {List} from "@ui/List";
 import {post} from "@api/index.js";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 export const Register = () => {
     const [isRedBorderEmail, setIsRedBorderEmail] = useState(false);
     const [isRedBorderName, setIsRedBorderName] = useState(false);
+    const navigate = useNavigate();
     const getCode = () => {
         const email = document.getElementById("email");
         setIsRedBorderEmail(!email.validity.valid);
@@ -19,10 +21,13 @@ export const Register = () => {
             alert("Please, enter all data");
             return;
         }
-        post({path: 'temp'})
+        post({path: 'register', data:{'email': email.value, 'fullName': fullName.value}})
             .then((res) => {
-                console.log(res)
+                console.log(res);
+                sessionStorage.setItem('email', email.value)
+                navigate("/confirm/")
             })
+            .catch(error => alert(error.response.data))
     }
     const checkEmailValidation = () => {
         const email = document.getElementById("email");
@@ -38,7 +43,7 @@ export const Register = () => {
             <h1 className={styles.text}>Create an account</h1>
             <List gap={30}>
                 <LoginInput style={{borderColor: isRedBorderName ? colors.red : colors.gray}}
-                            pattern="^[a-zA-Z]+\s[a-zA-Z]+$" onChange={checkNameValidation}
+                            pattern="^[a-zA-Z-]+\s[a-zA-Z-]+$" onChange={checkNameValidation}
                             toptext="Full name" id="fullName" name="fullName" type="text"
                             required/>
                 <LoginInput style={{borderColor: isRedBorderEmail ? colors.red : colors.gray}}
