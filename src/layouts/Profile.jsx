@@ -52,7 +52,9 @@ export const Profile = () => {
             .then(res => {
                 document.getElementById("fullName").value = res.data.fullName;
                 document.getElementById("email").value = res.data.email;
-                setPhoto("http://127.0.0.1:8000"+res.data.photo)
+                if (res.data.photo !== 'no') {
+                    setPhoto("http://127.0.0.1:8000"+res.data.photo)
+                }
             })
     }, [])
     const handleSubmit = () => {

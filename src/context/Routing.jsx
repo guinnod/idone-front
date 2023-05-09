@@ -9,12 +9,14 @@ import {Confirm} from "@pages/Confirm";
 import {Forgot} from "@pages/Forgot.jsx";
 import {Reset} from "@pages/Reset.jsx";
 import {ChangePassword} from "@pages/ChangePassword";
+import {Logout} from "@pages/Logout";
 
 export const Routing = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="login" element={<Login/>}/>
+                <Route path="logout" element={<Logout/>}/>
                 <Route path="register" element={<Register/>}/>
                 <Route path="confirm" element={<Confirm/>}/>
                 <Route path="forgot" element={<Forgot/>}/>

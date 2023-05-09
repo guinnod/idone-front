@@ -6,10 +6,12 @@ import {Button} from "@ui/Button";
 import {List} from "@ui/List";
 import {useState, useEffect} from "react";
 import {post, put} from "@api/index.js";
+import {useNavigate} from "react-router-dom";
 
 export const Confirm = () => {
     const [isConfirming, setIsConfirming] = useState(true);
     const [isRedBorderEmail, setIsRedBorderEmail] = useState(false);
+    const navigate = useNavigate()
     useEffect(() => {
         document.getElementById("email").value = sessionStorage.getItem('email')
     }, [])
@@ -43,6 +45,7 @@ export const Confirm = () => {
         })
             .then(res => {
                 console.log(res.data);
+                navigate('../login')
             })
             .catch(error => alert(error.response.data))
     }

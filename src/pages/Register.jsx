@@ -21,8 +21,16 @@ export const Register = () => {
             alert("Please, enter all data");
             return;
         }
-        const photo = document.getElementById("photo").files[0];
-        post({path: 'register', data:{'email': email.value, 'fullName': fullName.value, 'photo': photo}})
+        const formData = new FormData();
+        const photo = document.getElementById("photo").files
+        if (photo.length > 0) {
+            formData.append('photo', photo[0]);
+        }
+        formData.append('email', email.value)
+        formData.append('fullName', fullName.value)
+        post({path: 'register', data:formData, headers: {
+            'Content-Type': 'multipart/form-data'
+        }})
             .then((res) => {
                 console.log(res);
                 sessionStorage.setItem('email', email.value)

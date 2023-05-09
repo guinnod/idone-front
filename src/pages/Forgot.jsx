@@ -6,9 +6,11 @@ import {Button} from "@ui/Button";
 import {List} from "@ui/List";
 import {post} from "@api/index.js";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 export const Forgot = () => {
     const [isRedBorderEmail, setIsRedBorderEmail] = useState(false);
+    const navigate = useNavigate()
     const getCode = () => {
         const email = document.getElementById("email");
         setIsRedBorderEmail(!email.validity.valid);
@@ -16,10 +18,13 @@ export const Forgot = () => {
             alert("Please, enter all data");
             return;
         }
-        post({path: 'temp'})
-            .then((res) => {
-                console.log(res)
+        post({path: 'forgot-password', data: {'email': email.value}})
+            .then(res => {
+                sessionStorage.setItem('email', email.value);
+                sessionStorage.setItem('token', res.data.token);
+                navigate('../reset')
             })
+            .catch(error=>alert(error.response.data))
     }
     const checkEmailValidation = () => {
         const email = document.getElementById("email");
