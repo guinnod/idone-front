@@ -21,7 +21,8 @@ export const Register = () => {
             alert("Please, enter all data");
             return;
         }
-        post({path: 'register', data:{'email': email.value, 'fullName': fullName.value}})
+        const photo = document.getElementById("photo").files[0];
+        post({path: 'register', data:{'email': email.value, 'fullName': fullName.value, 'photo': photo}})
             .then((res) => {
                 console.log(res);
                 sessionStorage.setItem('email', email.value)

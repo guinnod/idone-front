@@ -10,16 +10,26 @@ import {List} from '@components/ui/List'
 import {Button} from '@components/ui/Button'
 import {InputWithIcon} from '@components/ui/InputWithIcon'
 import {useState} from "react";
+import {post} from "@api/index.js";
 
 export const Profile = () => {
     const enableFullName = () => {
+        document.getElementById("email").style.border = 'none'
+        document.getElementById("email").disabled = true
         const e = document.getElementById("fullName");
+        e.disabled = false;
+        e.style.border = `1px solid ${colors.main}`
+    }
+    const enableEmail = () => {
+        document.getElementById("fullName").style.border = 'none'
+        document.getElementById("fullName").disabled = true
+        const e = document.getElementById("email");
         e.disabled = false;
         e.style.border = `1px solid ${colors.main}`
     }
     const inputs = [
         {id: 'fullName', placeholder: 'Full name', type: 'text', onClick: enableFullName},
-        {id: 'email', placeholder: 'Email', type: 'email'},
+        {id: 'email', placeholder: 'Email', type: 'email', onClick: enableEmail},
         {id: 'password', placeholder: 'Password', type: 'password', href: "http://localhost:5173/change-password"}
     ]
     const style = {
@@ -37,6 +47,18 @@ export const Profile = () => {
             setPhoto(userPhoto)
         }
     }
+    const handleSubmit = () => {
+        const formData = new FormData();
+
+        const photo = document.getElementById("avatarPhoto").files[0]
+        formData.append('photo', photo);
+        post({
+            path: 'edit-profile', isAuth: true, data: formData, headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .then(res => console.log(res.data))
+    }
     return (
         <Window title='Account'>
             <div className={styles.anchor}>
@@ -44,9 +66,15 @@ export const Profile = () => {
                     <div className={styles.avatar}>
                         <UserPhoto src={photo} width='150px'/>
                         <span style={{cursor: "pointer"}}>
-                            <div style={{position: "relative", cursor: "pointer"}} >
+                            <div style={{position: "relative", cursor: "pointer"}}>
                             <input type={"file"} id="avatarPhoto" accept="image/png, image/jpg, image/jfif"
-                                   style={{opacity: 0, position: "absolute", width: '100%', height: '100%', cursor: "pointer"}} onChange={handlePhotoUpload}/>
+                                   style={{
+                                       opacity: 0,
+                                       position: "absolute",
+                                       width: '100%',
+                                       height: '100%',
+                                       cursor: "pointer"
+                                   }} onChange={handlePhotoUpload}/>
                             <CircleButton svg={editIcon} color={colors.main}/>
                                 </div>
                         </span>
@@ -59,7 +87,8 @@ export const Profile = () => {
                             )
                         })}
                     </List>
-                    <Button style={{width: '400px', borderRadius: '5px', background: colors.main}}>
+                    <Button style={{width: '400px', borderRadius: '5px', background: colors.main}}
+                            onClick={handleSubmit}>
                         Save
                     </Button>
                 </List>
