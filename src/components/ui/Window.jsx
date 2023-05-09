@@ -9,7 +9,7 @@ export const Window = ({ title, children }) => {
         dispatch(tasksActions.change("RETURN"));
     }
     return (
-        <div className={styles.root} onClick={change}>
+        <div className={styles.root}>
             <div className={styles.anchor} onClick={(e) => { e.stopPropagation() }}>
                 <div className={styles.header} >
                     {title}

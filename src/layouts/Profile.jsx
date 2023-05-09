@@ -9,8 +9,8 @@ import {CircleButton} from '@components/ui/CircleButton'
 import {List} from '@components/ui/List'
 import {Button} from '@components/ui/Button'
 import {InputWithIcon} from '@components/ui/InputWithIcon'
-import {useState} from "react";
-import {post} from "@api/index.js";
+import {useEffect, useState} from "react";
+import {get, post} from "@api/index.js";
 
 export const Profile = () => {
     const enableFullName = () => {
@@ -28,8 +28,8 @@ export const Profile = () => {
         e.style.border = `1px solid ${colors.main}`
     }
     const inputs = [
-        {id: 'fullName', placeholder: 'Full name', type: 'text', onClick: enableFullName},
-        {id: 'email', placeholder: 'Email', type: 'email', onClick: enableEmail},
+        {id: 'fullName', placeholder: 'Full name', type: 'text', onClick: enableFullName, pattern: "^[a-zA-Z-]+\s[a-zA-Z-]+$"},
+        {id: 'email', placeholder: 'Email', type: 'email', onClick: enableEmail, pattern: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"},
         {id: 'password', placeholder: 'Password', type: 'password', href: "http://localhost:5173/change-password"}
     ]
     const style = {
@@ -47,24 +47,55 @@ export const Profile = () => {
             setPhoto(userPhoto)
         }
     }
+    useEffect(()=> {
+        get({path: 'edit-profile', isAuth:true})
+            .then(res => {
+                document.getElementById("fullName").value = res.data.fullName;
+                document.getElementById("email").value = res.data.email;
+                setPhoto("http://127.0.0.1:8000"+res.data.photo)
+            })
+    }, [])
     const handleSubmit = () => {
         const formData = new FormData();
 
-        const photo = document.getElementById("avatarPhoto").files[0]
-        formData.append('photo', photo);
+        const photo = document.getElementById("avatarPhoto").files
+        if (photo.length > 0) {
+            formData.append('photo', photo[0]);
+        }
+        const email = document.getElementById("email")
+        if (email.value && email.value.length > 0) {
+            if (email.validity.valid) {
+                formData.append('email', email.value)
+            } else {
+                alert("Invalid data format")
+                return
+            }
+
+        }
+        const fullName = document.getElementById("fullName")
+        if (fullName.value && fullName.value.length > 0) {
+            if (fullName.validity.valid) {
+                formData.append('fullName', fullName.value)
+            } else {
+                alert("Incorrect format")
+                return
+            }
+        }
         post({
             path: 'edit-profile', isAuth: true, data: formData, headers: {
                 'Content-Type': 'multipart/form-data'
             }
         })
-            .then(res => console.log(res.data))
+            .then(res => {console.log(res.data)
+            alert("Changes saved!")})
+            .catch(err=>alert(err.response.data))
     }
     return (
         <Window title='Account'>
             <div className={styles.anchor}>
                 <List gap={20}>
                     <div className={styles.avatar}>
-                        <UserPhoto src={photo} width='150px'/>
+                        <UserPhoto id="avatarEdit" src={photo} width='150px'/>
                         <span style={{cursor: "pointer"}}>
                             <div style={{position: "relative", cursor: "pointer"}}>
                             <input type={"file"} id="avatarPhoto" accept="image/png, image/jpg, image/jfif"
@@ -83,7 +114,7 @@ export const Profile = () => {
                         {inputs.map((e, key) => {
                             return (
                                 <InputWithIcon key={key} placeholder={e.placeholder} type={e.type} src={editGrayIcon}
-                                               style={style} href={e.href} id={e.id} onClick={e.onClick}/>
+                                               style={style} href={e.href} id={e.id} onClick={e.onClick} pattern={e.pattern}/>
                             )
                         })}
                     </List>
