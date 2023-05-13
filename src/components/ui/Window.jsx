@@ -3,10 +3,12 @@ import closeIcon from '@icons/ic_Close.svg'
 import { tasksActions } from '@store/tasks'
 import { useDispatch } from 'react-redux'
 
-export const Window = ({ title, children }) => {
+export const Window = ({ title, children, closeAction }) => {
     const dispatch = useDispatch();
     const change = () => {
+
         dispatch(tasksActions.change("RETURN"));
+        closeAction(false)
     }
     return (
         <div className={styles.root}>
