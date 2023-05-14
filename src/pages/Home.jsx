@@ -29,7 +29,7 @@ export const Home = () => {
                     console.log(keys)
                     const randomKey = keys[Math.floor(Math.random() * keys.length)];
                     const randomValue = colors[randomKey];
-                    arr.push({name: list.name, color: randomValue})
+                    arr.push({name: list.name, color: randomValue, id: list.id})
                 })
                 setBoards(arr);
             })
@@ -49,7 +49,7 @@ export const Home = () => {
                     <div className={styles.boards}>
                         {boards.map((e, key) => {
                             return (
-                                <Link to='tasks'>
+                                <Link to={`tasks/${e.id}`}>
                                     <Board key={key} text={e.name} color={e.color} />
                                 </Link>
                             )

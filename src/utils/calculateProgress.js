@@ -3,5 +3,5 @@ export default function calculateProgress(value, max) {
     if (result.toString() === NaN.toString()) {
         result = 0;
     }
-    return result;
+    return result * 100;
 }

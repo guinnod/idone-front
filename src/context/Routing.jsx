@@ -24,7 +24,7 @@ export const Routing = () => {
                 <Route path="/" element={<Protected />}>
                     <Route index element={<Home/>}/>
                     <Route path="change-password" element={<ChangePassword/>}/>
-                    <Route path="tasks" element={<Tasks/>}/>
+                    <Route path="tasks/:id" element={<Tasks/>}/>
                     <Route path="workspace" element={<Workspace/>}/>
                 </Route>
             </Routes>
