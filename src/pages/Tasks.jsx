@@ -135,6 +135,11 @@ export const Tasks = () => {
         .then(res=>{console.log(res.data); setTaskData(res.data)})
         setIsTaskDetail(true);
     }
+    const[isTaskEdit, setIsTaskEdit] = useState(false);
+    const openTaskEdit = () => {
+        setIsTaskDetail(false);
+        setIsTaskEdit(true);
+    }
     return (
         <>
             <HeaderExtended name={p_name} setValue={()=>{setIsInvite(true)}} users={project_users.map(e=>e.photo)}/>
@@ -157,7 +162,9 @@ export const Tasks = () => {
                     Add new list
                 </CardListAdd >
             </section>
-            {isTaskDetail ? <TaskView p_name={p_name} closeAction={()=>{setIsTaskDetail(false)}} taskData={taskData}/> : isInvite ? <PersonsCard onSubmit={()=>{add_person()}} className={'add_user_to_project'} closeAction={()=>{setIsInvite(false)}} users={users}/> : showAdd ? <TaskAdd closeAction={setShowAdd} addTask={addTask}/> : showAddGen ? <TaskAdd isNewStatus addTask={{project_id: id}} closeAction={setShowAddGen}/> : isWindow == "TaskEdit" ? <TaskEdit /> : isWindow == "TaskView" ? <TaskView /> : isWindow == "PersonsCard" ? <PersonsCard /> : <></>}
+            {isTaskEdit ? <TaskEdit closeAction={()=>{setIsTaskEdit(false)}} taskData={taskData}/> : isTaskDetail ? <TaskView editTask={openTaskEdit} p_name={p_name} closeAction={()=>{setIsTaskDetail(false)}} taskData={taskData}/> : isInvite ? 
+            <PersonsCard onSubmit={()=>{add_person()}} className={'add_user_to_project'} closeAction={()=>{setIsInvite(false)}} users={users}/> : showAdd ? <TaskAdd closeAction={setShowAdd} addTask={addTask}/> : showAddGen ?
+             <TaskAdd isNewStatus addTask={{project_id: id}} closeAction={setShowAddGen}/> : isWindow == "TaskEdit" ? <TaskEdit /> : isWindow == "TaskView" ? <TaskView /> : isWindow == "PersonsCard" ? <PersonsCard /> : <></>}
         </>
     )
 }

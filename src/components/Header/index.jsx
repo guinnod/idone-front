@@ -15,13 +15,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { tasksActions } from '@store/tasks'
 import { Profile } from '@layouts/Profile'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 export const Header = () => {
-    const dispatch = useDispatch();
-    const change = () => {
-        dispatch(tasksActions.change("Profile"));
-    }
-    const isWindow = useSelector(state => state.tasks.isWindow)
+    const [isProfile, setIsProfile] = useState(false)
+
     return (
         <>
             <div className={styles.anchor} >
@@ -37,10 +35,10 @@ export const Header = () => {
                 <div>
                     <SearchInput />
                     <CircleButton svg={notifyIcon} color={colors.gray_mid} />
-                    <UserPhoto src={userPhoto} onClick={change} />
+                    <UserPhoto src={userPhoto} onClick={()=>{setIsProfile(true)}} />
                 </div>
             </div>
-            {isWindow == "Profile" ? <Profile /> : <></>}
+            {isProfile ? <Profile closeAction={()=>{setIsProfile(false)}}/> : <></>}
         </>
     )
 }

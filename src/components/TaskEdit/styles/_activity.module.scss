@@ -5,10 +5,11 @@
 .anchor {
     @include flex-vertical;
     align-items: flex-start;
-    justify-content: flex-start;
+    
     position: relative;
     background-color: $gray-mid;
     height: 100%;
+    width: inherit;
     h3 {
         margin: 0;
     }

@@ -9,7 +9,7 @@ import styles from './styles/_task-view.module.scss'
 import { get, post } from '@/api'
 import { useEffect, useState } from 'react'
 
-export const TaskView = ({taskData, closeAction, p_name}) => {
+export const TaskView = ({taskData, closeAction, p_name, editTask}) => {
     const [comments, setComments] = useState([]);
     
 useEffect(()=>{
@@ -23,7 +23,7 @@ useEffect(()=>{
         if (commentText.length > 0) {
             post({path: `add-comment/${taskData.project}/${taskData.pk}`, data: {description: commentText}, isAuth: true})
             .then(res=>{
-                
+                location.reload()
             })
         }
     } 
@@ -32,7 +32,7 @@ useEffect(()=>{
             <section className={styles.anchor} onClick={(e) => { e.stopPropagation() }}>
                 <TaskName date={taskData.date} name={taskData.name} author={taskData.author}/>
                 <TaskData date={taskData.date} status={taskData.status} users={taskData.users}/>
-                <TaskDescription description={taskData.description}/>
+                <TaskDescription editTask={editTask} description={taskData.description}/>
                 <div>
                     <h4>Comments ({comments.length??0})</h4>
                     {comments.length>0?<TaskComment project={p_name} author={comments[0].user} currentDate={comments[0].date} description={comments[0].description}/>:<></>}

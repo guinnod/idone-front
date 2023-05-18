@@ -4,7 +4,7 @@ import options from '@icons/options.svg';
 import { Box } from '@components/ui/Box';
 import { useDispatch } from 'react-redux';
 import { tasksActions } from '@store/tasks';
-export const CardListHeader = ({ color, text }) => {
+export const CardListHeader = ({ color, text, onClick }) => {
     const dispatch = useDispatch();
     const change = () => {
         dispatch(tasksActions.change("TaskEdit"));
@@ -15,7 +15,7 @@ export const CardListHeader = ({ color, text }) => {
             <div className={styles.marker} style={{ background: color }}></div>
             {text}
             <Box>
-                <img src={add} alt="add" onClick={change} />
+                <img src={add} alt="add" onClick={onClick} />
                 <img src={options} alt="options" />
             </Box>
         </Box>

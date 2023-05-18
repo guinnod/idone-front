@@ -14,15 +14,39 @@ import { Checklist } from '@components/TaskEdit/Checklist'
 import { TaskCheck } from '@components/TaskEdit/TaskCheck'
 import { Activity } from '@components/TaskEdit/Activity'
 import { Window } from '@components/ui/Window'
+import { useEffect, useState } from 'react'
+import { get, post } from '@/api'
 
-export const TaskEdit = () => {
+export const TaskEdit = ({ taskData, closeAction }) => {
     const boxStyle = {
         position: 'absolute',
         top: 20,
         left: '50%'
     }
+
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        get({ path: `add-comment/${taskData.project}/${taskData.pk}`, isAuth: true })
+            .then(res => {
+                setComments(res.data)
+            })
+    }, [taskData])
+    const sendComment = () => {
+        const commentText = document.getElementById("comment-input2").value
+        if (commentText.length > 0) {
+            post({ path: `add-comment/${taskData.project}/${taskData.pk}`, data: { description: commentText }, isAuth: true })
+                .then(res => {
+                    document.getElementById("comment-input2").value = ""
+                    get({ path: `add-comment/${taskData.project}/${taskData.pk}`, isAuth: true })
+                        .then(ress => {
+                            setComments(ress.data)
+                        })
+                })
+        }
+    }
     return (
-        <Window title='Name of the task'>
+        <Window title='Name of the task' closeAction={closeAction}>
             <Box gap={20} style={boxStyle}>
                 <img src={userIcon} alt="add person" />
                 <img src={timerIcon} alt="timer" />
@@ -35,7 +59,7 @@ export const TaskEdit = () => {
                         <OtherUsers users={[userPhoto, userPhoto]} limit={2} isAdd />
                     </Box>
                     <TaskDate date='20/03/2021' />
-                    <DescriptionInput />
+                    <DescriptionInput id={"desc"} value={taskData.description}/>
                     <Checklist />
                     <TaskCheck text='Set new password' />
                     <div className={styles.box}>
@@ -45,7 +69,7 @@ export const TaskEdit = () => {
                         </Box>
                     </div>
                 </section>
-                <Activity />
+                <Activity onClick={sendComment} comments={comments} />
             </section>
         </Window>
     )

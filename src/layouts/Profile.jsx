@@ -12,7 +12,7 @@ import {InputWithIcon} from '@components/ui/InputWithIcon'
 import {useEffect, useState} from "react";
 import {get, post} from "@api/index.js";
 
-export const Profile = () => {
+export const Profile = ({closeAction}) => {
     const enableFullName = () => {
         document.getElementById("email").style.border = 'none'
         document.getElementById("email").disabled = true
@@ -93,7 +93,7 @@ export const Profile = () => {
             .catch(err=>alert(err.response.data))
     }
     return (
-        <Window title='Account'>
+        <Window title='Account' closeAction={closeAction}>
             <div className={styles.anchor}>
                 <List gap={20}>
                     <div className={styles.avatar}>
