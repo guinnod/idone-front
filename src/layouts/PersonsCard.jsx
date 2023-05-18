@@ -14,11 +14,11 @@ export const PersonsCard = ({users, closeAction, className, onSubmit}) => {
             <List gap={40} style={{ padding: '20px 40px' }}>
                 <form name="" id="">
                     <List>
-                        {users.map((e, key) => {
+                        {users?  users.map((e, key) => {
                             return (
                                 <SelectPerson value={e.value} className={className} photo={e.photo} name={e.label} key={key} />
                             )
-                        })}
+                        }):<></>}
                     </List>
                 </form>
                 <Box>

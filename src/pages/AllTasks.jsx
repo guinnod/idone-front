@@ -1,6 +1,6 @@
 import styles from './styles/_tasks.module.scss'
 import { CardList } from '../components/CardList/CardList'
-import { HeaderExtended } from '../components/Header'
+import { Header } from '../components/Header'
 import { lists } from '../store/lists'
 import { Box } from '@components/ui/Box'
 import { CardListAdd } from '@components/CardList/CardListAdd'
@@ -15,8 +15,8 @@ import {useParams} from "react-router-dom";
 import { TaskAdd } from '@layouts/TaskAdd'
 
 
-export const Tasks = () => {
-    const { id } = useParams();
+export const AllTasks = () => {
+    
     const isWindow = useSelector(state => state.tasks.isWindow);
     let st = {
         todo:[], other:[]
@@ -33,29 +33,15 @@ export const Tasks = () => {
         todo:[], other:[]
     });
     const [tasks, setTasks] = useState([]);
-    const [addTask, setAddTask] = useState({
-        project_id: id
-    });
-    const [showAdd, setShowAdd] = useState(false)
-    const handleSetAddTask = (status) => {
-        if (showAdd) {
-            addTask.show = false;
-            addTask.status = false 
-        } else {
-            setShowAdd(true)
-            addTask.status = status;
-            console.log(status);
-        }
-        setAddTask(addTask)
-    }
-    const [showAddGen, setShowAddGen] = useState(false)
+    
+    
     const handleSetAddTaskGen = (status) => {
         setShowAddGen(true)
     }
     useEffect(()=>{
-        get({path: `project/${id}`, isAuth: true}).then(res=>setPName(res.data.name))
+        
         sS(st)
-        get({path: `task/${id}`, isAuth: true})
+        get({path: `all-tasks`, isAuth: true})
             .then(res=>{
                 const groupedData = res.data.reduce((acc, obj) => {
                     const key = Object.keys(obj)[0]; 
@@ -92,52 +78,11 @@ export const Tasks = () => {
             })
 
     }, [])
-    const [project_users, setProjectUsers] = useState([])
-    useEffect(() => {
-        
-        post({ path: 'project-users', data: {project_id: id}, isAuth: true })
-            .then(res => {
-                const resOptions = res.data;
-                const temp = [];
-
-                resOptions.forEach(function (option) {
-                    option.photo = `http://127.0.0.1:8000${option.photo}`;
-                    temp.push(
-                        option
-                    )
-                })
-                setProjectUsers(temp);
-                console.log(temp);
-            })
-
-    }, [])
-    const add_person = () => {
-        const data = []
-        console.log();
-        [...document.getElementsByClassName('add_user_to_project')].forEach(e=>{
-            if (e.checked) {
-                data.push(e.value)
-            }
-        })
-        console.log(data);
-        post({path: 'add-user-project', isAuth: true, data: {project_id: id, users: data}})
-        .then(res=>{
-            
-        })
-        .catch(err=>alert(err.response.data))
-    }
-    const[p_name, setPName] = useState([])
-    const[isTaskDetail, setIsTaskDetail] = useState(false);
-    const[taskData, setTaskData] = useState({});
-    const handleSetTask = (task)=>{
-        console.log(task);
-        get({path: `task-detail/${id}/${task.id}`, isAuth: true})
-        .then(res=>{console.log(res.data); setTaskData(res.data)})
-        setIsTaskDetail(true);
-    }
+    
+    
     return (
         <>
-            <HeaderExtended name={p_name} setValue={()=>{setIsInvite(true)}} users={project_users.map(e=>e.photo)}/>
+            <Header />
             <section className={styles.anchor}>
                 {
                     Object.keys(tasks).map((e, key) => {
@@ -148,16 +93,13 @@ export const Tasks = () => {
                         const randomValue = colors[randomKey];
                         return(
                             <Box className={styles.lists} key={key}>
-                                <CardList handleSetTask={handleSetTask} handleSetAddTask={handleSetAddTask} addTask={addTask} color={randomValue} text={e} cards={tasks[e]} />
+                                <CardList handleSetAddTask={handleSetAddTask} addTask={addTask} color={randomValue} text={e} cards={tasks[e]} />
                             </Box>
                         )
                     })
                 }
-                <CardListAdd style={{ width: 250 }} handleSetAddTask={handleSetAddTaskGen}>
-                    Add new list
-                </CardListAdd >
             </section>
-            {isTaskDetail ? <TaskView p_name={p_name} closeAction={()=>{setIsTaskDetail(false)}} taskData={taskData}/> : isInvite ? <PersonsCard onSubmit={()=>{add_person()}} className={'add_user_to_project'} closeAction={()=>{setIsInvite(false)}} users={users}/> : showAdd ? <TaskAdd closeAction={setShowAdd} addTask={addTask}/> : showAddGen ? <TaskAdd isNewStatus addTask={{project_id: id}} closeAction={setShowAddGen}/> : isWindow == "TaskEdit" ? <TaskEdit /> : isWindow == "TaskView" ? <TaskView /> : isWindow == "PersonsCard" ? <PersonsCard /> : <></>}
+            { isWindow == "TaskEdit" ? <TaskEdit /> : isWindow == "TaskView" ? <TaskView /> : isWindow == "PersonsCard" ? <PersonsCard /> : <></>}
         </>
     )
 }

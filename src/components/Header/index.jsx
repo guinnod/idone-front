@@ -44,20 +44,20 @@ export const Header = () => {
         </>
     )
 }
-export const HeaderExtended = ({setValue}) => {
+export const HeaderExtended = ({setValue, users, name}) => {
     return (
         <section>
             <Header />
             <div className={styles.anchor}>
                 <div>
                     <div className={styles.text}>
-                        Brackets
+                       { name}
                     </div>
                     <div className={styles.line}></div>
                 </div>
 
                 <div>
-                    <OtherUsers users={[userPhoto, userPhoto, userPhoto, userPhoto, userPhoto, userPhoto]} limit={4} />
+                    <OtherUsers users={users} limit={4} />
                     <InviteButton onClick={setValue}/>
                 </div>
             </div>

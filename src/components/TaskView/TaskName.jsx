@@ -1,10 +1,10 @@
 import styles from './styles/_task-name.module.scss'
-export const TaskName = ({ status }) => {
+export const TaskName = ({ name, author, date }) => {
 
     return (
         <div className={styles.anchor}>
-            <h1>Name of task</h1>
-            <p>Added by Ulday Turganbayeva, 22 hours ago</p>
+            <h1>{name}</h1>
+            <p>Added by {author}, {date}</p>
         </div>
     )
 }

@@ -7,6 +7,7 @@
     align-items: flex-start;
     padding: 33px 0;
     color: $dark-light;
+    justify-content: flex-start;
     & > section {
         @include flex-vertical;
         align-items: flex-start;

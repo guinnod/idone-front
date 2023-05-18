@@ -9,6 +9,9 @@ import {tasksActions} from "@store/tasks.jsx";
 import {AddProject} from "@layouts/AddProject";
 import {useEffect, useState} from "react";
 import {get} from "@api/index.js";
+import { Button } from '@components/ui/Button'
+import add_styles from '@components/CardList/styles/_card-list-add.module.scss'
+
 export const Home = () => {
     const dispatch = useDispatch();
     const change = () => {
@@ -54,7 +57,9 @@ export const Home = () => {
                                 </Link>
                             )
                         })}
-                        <div onClick={change}>Add new project</div>
+                        <Button className={add_styles.anchor} style={{padding: ' 0 20px', marginTop: '-45px'}}>
+                            <div onClick={change}> + Add new project</div>
+                        </Button>
                     </div>
                 </div>
             </div>

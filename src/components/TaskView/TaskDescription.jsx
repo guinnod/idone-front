@@ -7,8 +7,7 @@ export const TaskDescription = ({description}) => {
             <img src={descriptionIcon} alt="description" />
             <section>
                 <div className={styles.text}>Description</div>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt qui eligendi, accusamus nemo error at adipisci molestiae quasi temporibus. A corporis eos dolores, magnam maiores nobis fuga sequi doloribus minima.
-                <a>View all</a>
+                {description}<a>View all</a>
             </section>
         </div>
     )

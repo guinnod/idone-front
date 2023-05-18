@@ -12,6 +12,7 @@ const tasksSlice = createSlice({
     initialState: initialState,
     reducers: {
         change(state, action) {
+            return
             if (action.payload == "RETURN") {
                 state.isWindow = false
             } else {

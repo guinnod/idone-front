@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import { tasksActions } from '@store/tasks'
 import colors from "@styles/colors.json";
 
-export const Card = ({ color, name, value, users, comments, steps, paperclip }) => {
+export const Card = ({ color, name, value, users, comments, steps, paperclip, onClick }) => {
     console.log(users)
     const dispatch = useDispatch();
     const change = () => {
@@ -21,7 +21,7 @@ export const Card = ({ color, name, value, users, comments, steps, paperclip }) 
     const randomValue = colors[randomKey];
     const commentsSize = comments ? comments.length : 0;
     return (
-        <div className={styles.anchor} onClick={() => { change() }}>
+        <div className={styles.anchor} onClick={ onClick}>
             {name}
             <Progress value={value} size={180} color={randomValue} />
             <div className={styles.options}>

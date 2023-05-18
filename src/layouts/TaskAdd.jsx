@@ -110,11 +110,13 @@ export const TaskAdd = ({ closeAction, addTask, isNewStatus }) => {
                 <section>
                     <input id='nameTask' style={{border: `1px solid ${colors.gray_mid}`, padding: '10px 15px', borderRadius: '5px', width: '100%'}} placeholder='Name of the task'></input>
                     {isNewStatus ?
-                    <input id='newStatus' style={{border: `1px solid ${colors.gray_mid}`, padding: '10px 15px', borderRadius: '5px', width: '100%'}} placeholder='New status'></input>
+                    <input id='newStatus' style={{border: `1px solid ${colors.gray_mid}`, padding: '10px 15px', borderRadius: '5px', width: '100%', margin: '10px 0'}} placeholder='New status'></input>
                     :<></>}
                     <TaskDate handleDateChange={handleDateChange} selectedDate={selectedDate} />
                     <Select placeholder="Add users" value={users} setValue={setUsers} onChange={(option) => { setUsers(option) }} isMulti options={userOptions} />
+                    <div style={{margin: '10px 0 20px 0'}}>
                     <Select placeholder="Select priority" value={priority} setValue={setPriority} onChange={(option) => { setPriority(option) }} options={tempP} />
+                    </div>
                     <DescriptionInput id="createText" />
 
 
