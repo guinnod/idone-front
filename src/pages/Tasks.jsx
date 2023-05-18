@@ -10,7 +10,7 @@ import { TaskView } from '@layouts/TaskView'
 import { PersonsCard } from '@layouts/PersonsCard'
 import {useEffect, useState} from "react";
 import colors from "@styles/colors.json";
-import {get} from "@api/index.js";
+import {get, post} from "@api/index.js";
 import {useParams} from "react-router-dom";
 import { TaskAdd } from '@layouts/TaskAdd'
 
@@ -71,10 +71,45 @@ export const Tasks = () => {
                 setTasks(groupedData)
             })
     },[])
+    const [isInvite, setIsInvite] = useState(false);
+    const[users, setUsers] = useState([]);
+    useEffect(() => {
+        get({ path: 'students', isAuth: true })
+            .then(res => {
+                const resOptions = res.data;
+                const temp = [];
 
+                resOptions.forEach(function (option) {
+                    console.log(option)
+                    temp.push({
+                        value: option.email,
+                        label: option.first_name + " " + option.last_name,
+                        photo: `http://127.0.0.1:8000${option.photo}`
+                    })
+                })
+                setUsers(temp);
+                console.log(temp);
+            })
+
+    }, [])
+    const add_person = () => {
+        const data = []
+        console.log();
+        [...document.getElementsByClassName('add_user_to_project')].forEach(e=>{
+            if (e.checked) {
+                data.push(e.value)
+            }
+        })
+        console.log(data);
+        post({path: 'add-user-project', isAuth: true, data: {project_id: id, users: data}})
+        .then(res=>{
+            
+        })
+        .catch(err=>alert(err.response.data))
+    }
     return (
         <>
-            <HeaderExtended />
+            <HeaderExtended setValue={()=>{setIsInvite(true)}}/>
             <section className={styles.anchor}>
                 {
                     Object.keys(tasks).map((e, key) => {
@@ -94,7 +129,7 @@ export const Tasks = () => {
                     Add new list
                 </CardListAdd >
             </section>
-            {showAdd ? <TaskAdd closeAction={setShowAdd} addTask={addTask}/> : showAddGen ? <TaskAdd isNewStatus addTask={{project_id: id}} closeAction={setShowAddGen}/> : isWindow == "TaskEdit" ? <TaskEdit /> : isWindow == "TaskView" ? <TaskView /> : isWindow == "PersonsCard" ? <PersonsCard /> : <></>}
+            {isInvite ? <PersonsCard onSubmit={()=>{add_person()}} className={'add_user_to_project'} closeAction={()=>{setIsInvite(false)}} users={users}/> : showAdd ? <TaskAdd closeAction={setShowAdd} addTask={addTask}/> : showAddGen ? <TaskAdd isNewStatus addTask={{project_id: id}} closeAction={setShowAddGen}/> : isWindow == "TaskEdit" ? <TaskEdit /> : isWindow == "TaskView" ? <TaskView /> : isWindow == "PersonsCard" ? <PersonsCard /> : <></>}
         </>
     )
 }

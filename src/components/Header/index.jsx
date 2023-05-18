@@ -44,7 +44,7 @@ export const Header = () => {
         </>
     )
 }
-export const HeaderExtended = () => {
+export const HeaderExtended = ({setValue}) => {
     return (
         <section>
             <Header />
@@ -58,7 +58,7 @@ export const HeaderExtended = () => {
 
                 <div>
                     <OtherUsers users={[userPhoto, userPhoto, userPhoto, userPhoto, userPhoto, userPhoto]} limit={4} />
-                    <InviteButton />
+                    <InviteButton onClick={setValue}/>
                 </div>
             </div>
         </section>
