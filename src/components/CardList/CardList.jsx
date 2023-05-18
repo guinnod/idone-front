@@ -6,14 +6,14 @@ import { CardListHeader } from './CardListHeader'
 import { List } from '@components/ui/List';
 import calculateProgress from "@utils/calculateProgress.js";
 
-export const CardList = ({ color, text, cards }) => {
+export const CardList = ({ color, text, cards, handleSetAddTask, addTask }) => {
     return (
         <List className={styles.anchor}>
             <CardListHeader color={color} text={text} />
             {cards ? cards.map((e, key) => {
                 return (<Card key={key} name={e.name} value={calculateProgress(e.all_done_subtasks, e.all_subtasks)} comments={e.comments} users={e.project_users} />)
             }) : <></>}
-            <CardListAdd style={{ color: colors.dark }}>
+            <CardListAdd handleSetAddTask={handleSetAddTask} addTask={addTask} text={text} style={{ color: colors.dark }}>
                 Add new card
             </CardListAdd>
         </List>

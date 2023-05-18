@@ -4,7 +4,7 @@ import { Button } from '@components/ui/Button';
 import { useDispatch } from 'react-redux';
 import { tasksActions } from '@store/tasks';
 
-export const CardListAdd = ({ children, style }) => {
+export const CardListAdd = ({ children, style, text, handleSetAddTask, addTask }) => {
 
     const dispatch = useDispatch();
     const change = () => {
@@ -13,7 +13,9 @@ export const CardListAdd = ({ children, style }) => {
         }
     }
     return (
-        <Button className={styles.anchor} style={style} onClick={change}>
+        <Button className={styles.anchor} style={style} onClick={()=>{
+            handleSetAddTask(text)
+        }}>
             <img src={add} alt="add" />
             {children}
         </Button>

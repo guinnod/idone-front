@@ -12,6 +12,8 @@ import {useEffect, useState} from "react";
 import colors from "@styles/colors.json";
 import {get} from "@api/index.js";
 import {useParams} from "react-router-dom";
+import { TaskAdd } from '@layouts/TaskAdd'
+
 
 export const Tasks = () => {
     const { id } = useParams();
@@ -31,14 +33,33 @@ export const Tasks = () => {
         todo:[], other:[]
     });
     const [tasks, setTasks] = useState([]);
+    const [addTask, setAddTask] = useState({
+        project_id: id
+    });
+    const [showAdd, setShowAdd] = useState(false)
+    const handleSetAddTask = (status) => {
+        if (showAdd) {
+            addTask.show = false;
+            addTask.status = false 
+        } else {
+            setShowAdd(true)
+            addTask.status = status;
+            console.log(status);
+        }
+        setAddTask(addTask)
+    }
+    const [showAddGen, setShowAddGen] = useState(false)
+    const handleSetAddTaskGen = (status) => {
+        setShowAddGen(true)
+    }
     useEffect(()=>{
 
         sS(st)
         get({path: `task/${id}`, isAuth: true})
             .then(res=>{
                 const groupedData = res.data.reduce((acc, obj) => {
-                    const key = Object.keys(obj)[0]; // Get the key of the object
-                    const value = obj[key]; // Get the value of the object
+                    const key = Object.keys(obj)[0]; 
+                    const value = obj[key]; 
                     if (acc[key]) {
                         acc[key].push(value);
                     } else {
@@ -64,16 +85,16 @@ export const Tasks = () => {
                         const randomValue = colors[randomKey];
                         return(
                             <Box className={styles.lists} key={key}>
-                                <CardList  color={randomValue} text={e} cards={tasks[e]} />
+                                <CardList handleSetAddTask={handleSetAddTask} addTask={addTask} color={randomValue} text={e} cards={tasks[e]} />
                             </Box>
                         )
                     })
                 }
-                <CardListAdd style={{ width: 250 }}>
+                <CardListAdd style={{ width: 250 }} handleSetAddTask={handleSetAddTaskGen}>
                     Add new list
-                </CardListAdd>
+                </CardListAdd >
             </section>
-            {isWindow == "TaskEdit" ? <TaskEdit /> : isWindow == "TaskView" ? <TaskView /> : isWindow == "PersonsCard" ? <PersonsCard /> : <></>}
+            {showAdd ? <TaskAdd closeAction={setShowAdd} addTask={addTask}/> : showAddGen ? <TaskAdd isNewStatus addTask={{project_id: id}} closeAction={setShowAddGen}/> : isWindow == "TaskEdit" ? <TaskEdit /> : isWindow == "TaskView" ? <TaskView /> : isWindow == "PersonsCard" ? <PersonsCard /> : <></>}
         </>
     )
 }

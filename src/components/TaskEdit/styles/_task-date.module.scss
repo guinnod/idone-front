@@ -4,10 +4,10 @@
 .anchor {
     @include flex;
     font-size: 16px;
-    div {
+    > div {
         @include flex;
     }
-    img {
+    > img {
         margin-top: -1px;
     }
     width: 200px;
@@ -16,4 +16,5 @@
 
 .text {
     color: $gray;
+    white-space: nowrap;
 }
