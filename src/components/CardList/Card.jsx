@@ -23,7 +23,7 @@ export const Card = ({ color, name, value, users, comments, steps, paperclip, on
     return (
         <div className={styles.anchor} onClick={ onClick}>
             {name}
-            <Progress value={value} size={180} color={randomValue} />
+            <Progress value={value} size={220} color={randomValue} />
             <div className={styles.options}>
                 <CardOption data={comments} svg={messageIcon} />
                 {steps ? <CardOption data={`${steps.current}/${steps.max}`} svg={checkIcon} /> : <></>}

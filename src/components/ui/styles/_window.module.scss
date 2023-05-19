@@ -4,6 +4,7 @@
 .root {
     position: fixed;
     top: 0;
+    left: 0;
     @include flex-center;
     background: rgba($color: #000000, $alpha: 0.8);
     z-index: 10;

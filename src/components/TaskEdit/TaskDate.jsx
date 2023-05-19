@@ -14,6 +14,7 @@ export const TaskDate = ({ selectedDate, handleDateChange }) => {
                         selected={selectedDate}
                         onChange={handleDateChange}
                         dateFormat="dd/MM/yyyy"
+                        minDate={new Date()}
                     />
             </div>
         </div>
