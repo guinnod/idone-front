@@ -10,11 +10,13 @@
     z-index: 10;
     width: 100vw;
     height: 100vh;
+    zoom: 130%
 }
 
 .anchor {
     @include card(white, 14px, auto, max-content);
     position: relative;
+    zoom: 80%;
 }
 
 .header {

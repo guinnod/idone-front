@@ -19,7 +19,7 @@ export const Activity = ({comments, onClick}) => {
             </List>
             </div>
             <section style={{position: 'static', justifySelf: 'flex-end'}}>
-                <CommentInput onClick={onClick} id="comment-input2" styleIn={{width: '320px'}} style={{ margin: '0 20px', position: 'relative'}}/>
+                <CommentInput isDiv onClick={onClick} id="comment-input2" styleIn={{width: '320px'}} style={{ margin: '0 20px', position: 'relative'}}/>
             </section>
         </section>
     )

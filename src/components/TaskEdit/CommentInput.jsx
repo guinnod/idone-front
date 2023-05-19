@@ -6,7 +6,7 @@ import { InputWithIcon } from '@components/ui/InputWithIcon'
 import { useState } from 'react'
 import { get } from '@/api'
 
-export const CommentInput = ({onClick, id, style, styleIn}) => {
+export const CommentInput = ({onClick, id, style, styleIn, isDiv}) => {
     
     const[photo, setPhoto] = useState(userPhoto)
     get({path: 'edit-profile', isAuth:true})
@@ -20,7 +20,7 @@ export const CommentInput = ({onClick, id, style, styleIn}) => {
             <div className={styles.photo}>
                 <UserPhoto src={photo}/>
             </div>
-            <InputWithIcon style={styleIn} onClick={onClick} id={id ?? "comment-input"} placeholder='Add a comment' src={arrowIcon} type='text'/>
+            <InputWithIcon isDiv={isDiv} style={styleIn} onClick={onClick} id={id ?? "comment-input"} placeholder='Add a comment' src={arrowIcon} type='text'/>
         </div>
     )
 }
