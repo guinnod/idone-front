@@ -45,8 +45,22 @@ export const TaskEdit = ({ taskData, closeAction }) => {
                 })
         }
     }
+    const [subCount, setSubCount] = useState({
+        all: taskData.subtask_set.length
+    });
+    useEffect(() => {
+        let count = 0;
+        taskData.subtask_set.forEach(e => {
+            if (e.is_done) {
+                count++;
+            }
+        })
+        subCount.done = count;
+        setSubCount(subCount);
+        console.log(subCount);
+    }, [])
     return (
-        <Window title='Name of the task' closeAction={closeAction}>
+        <Window title='Name of the task' closeAction={()=>{closeAction(); location.reload()}}>
             <Box gap={20} style={boxStyle}>
                 <img src={userIcon} alt="add person" />
                 <img src={timerIcon} alt="timer" />
@@ -59,9 +73,16 @@ export const TaskEdit = ({ taskData, closeAction }) => {
                         <OtherUsers users={[userPhoto, userPhoto]} limit={2} isAdd />
                     </Box>
                     <TaskDate date='20/03/2021' />
-                    <DescriptionInput id={"desc"} value={taskData.description}/>
-                    <Checklist />
-                    <TaskCheck text='Set new password' />
+                    <DescriptionInput id={"desc"} value={taskData.description} />
+                    <Checklist subCount={subCount} />
+                    {taskData.subtask_set ? taskData.subtask_set.map((e, key) => {
+                        return (<TaskCheck onChange={() => {
+                            post({ path: `set-subtask/${taskData.project}/${taskData.pk}`, data: { pk: e.pk, is_done: document.getElementById(`sub-input${key}`).checked}, isAuth: true })
+                                .then(res => {
+                                    
+                                })
+                        }} id={`sub-input${key}`} isDone={e.is_done} key={key} text={e.name} />)
+                    }) : <></>}
                     <div className={styles.box}>
                         <Box>
                             <img src={arrowIcon} alt="arrow" />

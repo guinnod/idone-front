@@ -20,4 +20,5 @@
 
 .content {
     @include card(white, 8px, 14px, 360px);
+    overflow-x: hidden;
 }

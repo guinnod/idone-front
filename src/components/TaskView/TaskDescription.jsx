@@ -7,7 +7,7 @@ export const TaskDescription = ({description, editTask}) => {
             <img src={descriptionIcon} alt="description" />
             <section>
                 <div className={styles.text}>Description</div>
-                {description}<a onClick={editTask}>View all</a>
+                {description}<a style={{cursor: 'pointer'}} onClick={editTask}>View all</a>
             </section>
         </div>
     )

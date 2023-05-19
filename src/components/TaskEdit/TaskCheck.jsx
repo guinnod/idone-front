@@ -3,12 +3,12 @@ import userEditIcon from '@icons/user-edit.svg'
 import clockIcon from '@icons/clock.svg'
 import optionsIcon from '@icons/options.svg'
 import { Box } from '@components/ui/Box'
-export const TaskCheck = ({ text }) => {
+export const TaskCheck = ({ text, isDone, id, onChange }) => {
     return (
         <div className={styles.anchor}>
             <Box >
                 <Box>
-                    <input type="checkbox" name={text} id={text} />
+                    <input onChange={onChange} defaultChecked={isDone} type="checkbox" name={text} id={id} />
                     <label htmlFor={text}>{text}</label>
                 </Box>
                 <Box gap={20}>
