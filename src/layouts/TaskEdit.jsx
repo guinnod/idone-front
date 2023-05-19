@@ -18,7 +18,9 @@ import { useEffect, useState } from 'react'
 import { get, post, put } from '@/api'
 import colors from '@assets/styles/colors.json'
 import { Button } from '@components/ui/Button'
-export const TaskEdit = ({ taskData, closeAction }) => {
+import { TaskPeople } from '@components/TaskView/TaskPeople'
+import { PersonsCard } from './PersonsCard'
+export const TaskEdit = ({ taskData, closeAction, project_users }) => {
     const boxStyle = {
         position: 'absolute',
         top: 20,
@@ -61,6 +63,11 @@ export const TaskEdit = ({ taskData, closeAction }) => {
         console.log(subCount);
     }, [])
     const [isAddItem, setIsAddItem] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(new Date(taskData.date));
+    const [isTaskPeople, setIsTaskPeople] = useState(false);
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
     return (
         <Window title='Name of the task' closeAction={() => { closeAction(); location.reload() }}>
             <Box gap={20} style={boxStyle}>
@@ -71,10 +78,15 @@ export const TaskEdit = ({ taskData, closeAction }) => {
             <section className={styles.anchor}>
                 <section>
                     <Box gap={40}>
-                        <TaskButton text='Planning' />
-                        <OtherUsers users={[userPhoto, userPhoto]} limit={2} isAdd />
+                        <TaskButton text={taskData.status} />
+                        <TaskPeople onClick={()=>{setIsTaskPeople(true)}} users={taskData.users}/>
+                        {
+                            isTaskPeople?
+                            <PersonsCard closeAction={()=>{setIsTaskPeople(false)}} users={project_users}/>
+                            :<></>
+                        }
                     </Box>
-                    <TaskDate date='20/03/2021' />
+                    <TaskDate selectedDate={selectedDate} handleDateChange={handleDateChange}/>
                     <DescriptionInput id={"desc"} value={taskData.description} />
                     <Checklist subCount={subCount} />
                     <div>
@@ -86,14 +98,6 @@ export const TaskEdit = ({ taskData, closeAction }) => {
                                     })
                             }} id={`sub-input${key}`} isDone={e.is_done} key={key} text={e.name} />)
                         }) : <></>}
-                        {/* {taskData.subtask_set ? taskData.subtask_set.map((e, key) => {
-                        return (<TaskCheck onChange={() => {
-                            post({ path: `set-subtask/${taskData.project}/${taskData.pk}`, data: { pk: e.pk, is_done: document.getElementById(`sub-input${key}`).checked}, isAuth: true })
-                                .then(res => {
-                                    
-                                })
-                        }} id={`sub-input${key}`} isDone={e.is_done} key={key} text={e.name} />)
-                    }) : <></>} */}
                     </div>
                     <div onClick={() => { setIsAddItem(true) }} style={{ margin: '10px', color: colors.gray, fontSize: '18px', cursor: 'pointer' }}>
                         + Add an item

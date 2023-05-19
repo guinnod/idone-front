@@ -18,20 +18,6 @@ import { TaskAdd } from '@layouts/TaskAdd'
 export const AllTasks = () => {
     
     const isWindow = useSelector(state => state.tasks.isWindow);
-    let st = {
-        todo:[], other:[]
-    }
-    for (let i = 0; i < lists.length; i++) {
-        if (lists[i].status == "todo") {
-            console.log(lists[i])
-            st.todo.push(lists[i])
-        } else {
-            st.other.push(lists[i])
-        }
-    }
-    const [sts, sS] = useState({
-        todo:[], other:[]
-    });
     const [tasks, setTasks] = useState([]);
     
     
@@ -39,8 +25,6 @@ export const AllTasks = () => {
         setShowAddGen(true)
     }
     useEffect(()=>{
-        
-        sS(st)
         get({path: `all-tasks`, isAuth: true})
             .then(res=>{
                 const groupedData = res.data.reduce((acc, obj) => {
@@ -93,7 +77,7 @@ export const AllTasks = () => {
                         const randomValue = colors[randomKey];
                         return(
                             <Box className={styles.lists} key={key}>
-                                <CardList handleSetAddTask={handleSetAddTask} addTask={addTask} color={randomValue} text={e} cards={tasks[e]} />
+                                <CardList color={randomValue} text={e} cards={tasks[e]} />
                             </Box>
                         )
                     })

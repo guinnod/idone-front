@@ -11,6 +11,7 @@ import {Reset} from "@pages/Reset.jsx";
 import {ChangePassword} from "@pages/ChangePassword";
 import {Logout} from "@pages/Logout";
 import { AllTasks } from "@pages/AllTasks";
+import { Project } from "@pages/Project";
 
 export const Routing = () => {
     return (
@@ -27,6 +28,7 @@ export const Routing = () => {
                     <Route path="change-password" element={<ChangePassword/>}/>
                     <Route path="tasks" element={<AllTasks />} />
                     <Route path="tasks/:id" element={<Tasks/>}/>
+                    <Route path="project/:name" element={<Project />} />
                     <Route path="workspace" element={<Workspace/>}/>
                 </Route>
             </Routes>

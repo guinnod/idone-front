@@ -3,7 +3,7 @@ import colors from '@styles/colors.json'
 import { Header } from '@Header/index.jsx'
 import { Board } from '@Board/Board.jsx'
 import { Menu } from '@Menu/Menu.jsx'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import {useDispatch, useSelector} from "react-redux";
 import {tasksActions} from "@store/tasks.jsx";
 import {AddProject} from "@layouts/AddProject";
@@ -12,15 +12,15 @@ import {get} from "@api/index.js";
 import { Button } from '@components/ui/Button'
 import add_styles from '@components/CardList/styles/_card-list-add.module.scss'
 
-export const Home = () => {
-    const dispatch = useDispatch();
+export const Project = () => {
+    const {name} = useParams()
     const change = () => {
         setIsAddWindow(true)
     }
     const isWindow = useSelector(state => state.tasks.isWindow)
     const [isAddWindow, setIsAddWindow] = useState(false)
     useEffect(()=>{
-        get({path:'project', isAuth: true})
+        get({path:`users-project/${name}`, isAuth: true})
             .then(res=> {
                 const list = res.data;
                 const arr = []
@@ -50,7 +50,7 @@ export const Home = () => {
                     <div className={styles.boards}>
                         {boards.map((e, key) => {
                             return (
-                                <Link key={key} to={`tasks/${e.id}`}>
+                                <Link onClick={()=>{window.location.href = `/tasks/${e.id}`}} key={key} to={`tasks/${e.id}`}>
                                     <Board key={key} text={e.name} color={e.color} />
                                 </Link>
                             )

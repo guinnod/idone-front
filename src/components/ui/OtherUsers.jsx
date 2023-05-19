@@ -2,7 +2,7 @@ import styles from './styles/_other-users.module.scss'
 import { OtherUsersPhoto } from './OtherUsersPhoto'
 import { UserPhoto } from './UserPhoto';
 
-export const OtherUsers = ({ users, limit, isAdd }) => {
+export const OtherUsers = ({ users, limit, isAdd, onClick }) => {
     let isLast;
     let amount;
     if (users) {
@@ -19,7 +19,7 @@ export const OtherUsers = ({ users, limit, isAdd }) => {
                     <UserPhoto src={e} key={key} />
                 );
             }) : <></>}
-            {isLast ? <OtherUsersPhoto amount={amount} isAdd={isAdd}/> : isAdd ? <OtherUsersPhoto isAdd={true}/> : <></>}
+            {isLast ? <OtherUsersPhoto onClick={onClick} amount={amount} isAdd={isAdd}/> : isAdd ? <OtherUsersPhoto onClick={onClick} isAdd={true}/> : <></>}
         </div>
     )
 }

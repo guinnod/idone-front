@@ -17,7 +17,7 @@ import { Profile } from '@layouts/Profile'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
-export const Header = () => {
+export const Header = ({pluseAction}) => {
     const [isProfile, setIsProfile] = useState(false)
 
     return (
@@ -29,7 +29,7 @@ export const Header = () => {
                     <Link to='/'>
                         <CircleButton svg={homeIcon} color={colors.gray_mid} />
                     </Link>
-                    <CircleButton svg={addIcon} color={colors.main} />
+                    <CircleButton onClick={pluseAction} svg={addIcon} color={colors.main} />
                 </div>
                 <Logo />
                 <div>
