@@ -1,0 +1,52 @@
+{
+    "rewrites": [
+        {
+            "source": "/login",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/logout",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/register",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/confirm",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/forgot",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/reset",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/change-password",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/tasks",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/tasks/:id",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/project/:name",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/workspace",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
