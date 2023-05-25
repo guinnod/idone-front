@@ -84,7 +84,7 @@ export const Tasks = () => {
                     temp.push({
                         value: option.email,
                         label: option.first_name + " " + option.last_name,
-                        photo: `http://127.0.0.1:8000${option.photo}`
+                        photo: `https://guinnodsdu.pythonanywhere.com${option.photo}`
                     })
                 })
                 setUsers(temp);
@@ -101,7 +101,7 @@ export const Tasks = () => {
                 const temp = [];
 
                 resOptions.forEach(function (option) {
-                    option.photo = `http://127.0.0.1:8000${option.photo}`;
+                    option.photo = `https://guinnodsdu.pythonanywhere.com${option.photo}`;
                     temp.push(
                         option
                     )

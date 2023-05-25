@@ -12,7 +12,7 @@ export const CommentInput = ({onClick, id, style, styleIn, isDiv}) => {
     get({path: 'edit-profile', isAuth:true})
     .then(res => {
         if (res.data.photo !== 'no') {
-            setPhoto("http://127.0.0.1:8000"+res.data.photo)
+            setPhoto("https://guinnodsdu.pythonanywhere.com"+res.data.photo)
         }
     })
     return (

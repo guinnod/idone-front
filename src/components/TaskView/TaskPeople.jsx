@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 export const TaskPeople = ({ users, onClick }) => {
     const temp = []
         if (users)
-            users.forEach(e => { temp.push( `http://127.0.0.1:8000${e}`); })
+            users.forEach(e => { temp.push( `https://guinnodsdu.pythonanywhere.com${e}`); })
         
     return (
         <div className={styles.anchor}>
