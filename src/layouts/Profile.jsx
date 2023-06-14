@@ -30,7 +30,7 @@ export const Profile = ({closeAction}) => {
     const inputs = [
         {id: 'fullName', placeholder: 'Full name', type: 'text', onClick: enableFullName, pattern: "^[a-zA-Z-]+\s[a-zA-Z-]+$"},
         {id: 'email', placeholder: 'Email', type: 'email', onClick: enableEmail, pattern: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"},
-        {id: 'password', placeholder: 'Password', type: 'password', href: "http://localhost:5173/change-password"}
+        {id: 'password', placeholder: 'Password', type: 'password', href: "https://on-time-front.vercel.app/change-password"}
     ]
     const style = {
         'padding': '12px 18px',
