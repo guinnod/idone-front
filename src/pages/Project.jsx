@@ -38,7 +38,7 @@ export const Project = () => {
                 alert(err.response.data)
             })
     }, [])
-    const [boards, setBoards] = useState([{ name: 'Uni project', color: colors.blue_pacific }, { name: 'UI Kit', color: colors.main }, { name: 'Illustration', color: colors.red }, { name: 'Design System', color: colors.purple }]);
+    const [boards, setBoards] = useState([]);
     return (
         <>
         <div >
@@ -55,9 +55,11 @@ export const Project = () => {
                                 </Link>
                             )
                         })}
-                        <Button className={add_styles.anchor} style={{padding: ' 0 20px', marginTop: '-45px'}}>
+                        <div style={{height: '110px', paddingTop: '12.5px'}}>
+                        <Button className={add_styles.anchor} style={{padding: ' 0 20px'}}>
                             <div onClick={change}> + Add new project</div>
                         </Button>
+                        </div>
                     </div>
                 </div>
             </div>

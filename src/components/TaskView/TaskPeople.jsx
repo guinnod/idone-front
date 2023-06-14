@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 export const TaskPeople = ({ users, onClick }) => {
     const temp = []
         if (users)
-            users.forEach(e => { temp.push( `https://guinnodsdu.pythonanywhere.com${e}`); })
+            users.forEach(e => { temp.push( `${import.meta.env.VITE_BACKEND_API}${e}`); })
         
     return (
         <div className={styles.anchor}>

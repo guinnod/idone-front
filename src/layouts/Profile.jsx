@@ -30,7 +30,7 @@ export const Profile = ({closeAction}) => {
     const inputs = [
         {id: 'fullName', placeholder: 'Full name', type: 'text', onClick: enableFullName, pattern: "^[a-zA-Z-]+\s[a-zA-Z-]+$"},
         {id: 'email', placeholder: 'Email', type: 'email', onClick: enableEmail, pattern: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"},
-        {id: 'password', placeholder: 'Password', type: 'password', href: "https://on-time-front.vercel.app/change-password"}
+        {id: 'password', placeholder: 'Password', type: 'password', href: `${import.meta.env.VITE_FRONTEND_URL}/change-password`}
     ]
     const style = {
         'padding': '12px 18px',
@@ -53,7 +53,7 @@ export const Profile = ({closeAction}) => {
                 document.getElementById("fullName").value = res.data.fullName;
                 document.getElementById("email").value = res.data.email;
                 if (res.data.photo !== 'no') {
-                    setPhoto("https://guinnodsdu.pythonanywhere.com"+res.data.photo)
+                    setPhoto(`${import.meta.env.VITE_BACKEND_API}`+res.data.photo)
                 }
             })
     }, [])

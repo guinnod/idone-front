@@ -35,3 +35,48 @@ input:focus,
 textarea:focus {
     outline: none;
 }
+
+/* Width and Height of the scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b2a9a9;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #b2a9a9 #f1f1f1;
+}
+
+/* Microsoft Edge and Internet Explorer */
+*::-ms-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+*::-ms-scrollbar-track {
+    background: #f1f1f1;
+}
+
+*::-ms-scrollbar-thumb {
+    background: #b2a9a9;
+}
+
+*::-ms-scrollbar-thumb:hover {
+    background: #888;
+}

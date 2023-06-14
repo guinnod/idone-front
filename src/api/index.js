@@ -13,7 +13,7 @@ export const post = ({path, data, headers, isAuth}) => {
             });
         }
     }
-    return axios.post(`https://guinnodsdu.pythonanywhere.com/api/${path}/`, data, {headers})
+    return axios.post(`${import.meta.env.VITE_BACKEND_API}/api/${path}/`, data, {headers})
 }
 
 export const put = ({path, data, headers, isAuth}) => {
@@ -28,7 +28,7 @@ export const put = ({path, data, headers, isAuth}) => {
             });
         }
     }
-    return axios.put(`https://guinnodsdu.pythonanywhere.com/api/${path}/`, data, {headers})
+    return axios.put(`${import.meta.env.VITE_BACKEND_API}/api/${path}/`, data, {headers})
 }
 
 export const get = ({path, headers, isAuth}) => {
@@ -43,5 +43,5 @@ export const get = ({path, headers, isAuth}) => {
             });
         }
     }
-    return axios.get(`https://guinnodsdu.pythonanywhere.com/api/${path}/`, {headers})
+    return axios.get(`${import.meta.env.VITE_BACKEND_API}/api/${path}/`, {headers})
 }

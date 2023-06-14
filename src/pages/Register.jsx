@@ -7,6 +7,7 @@ import {List} from "@ui/List";
 import {post} from "@api/index.js";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { RegisterOptions } from "@components/Login/LoginOptions";
 
 export const Register = () => {
     const [isRedBorderEmail, setIsRedBorderEmail] = useState(false);
@@ -63,6 +64,7 @@ export const Register = () => {
                 <Button onClick={getCode} style={{background: colors.main, width: '500px', color: 'white'}}>
                     Get confirmation code
                 </Button>
+                <RegisterOptions />
             </List>
         </div>
     )

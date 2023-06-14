@@ -84,7 +84,7 @@ export const Tasks = () => {
                     temp.push({
                         value: option.email,
                         label: option.first_name + " " + option.last_name,
-                        photo: `https://guinnodsdu.pythonanywhere.com${option.photo}`
+                        photo: `${import.meta.env.VITE_BACKEND_API}${option.photo}`
                     })
                 })
                 setUsers(temp);
@@ -101,7 +101,7 @@ export const Tasks = () => {
                 const temp = [];
 
                 resOptions.forEach(function (option) {
-                    option.photo = `https://guinnodsdu.pythonanywhere.com${option.photo}`;
+                    option.photo = `${import.meta.env.VITE_BACKEND_API}${option.photo}`;
                     temp.push(
                         option
                     )

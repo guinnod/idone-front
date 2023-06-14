@@ -22,7 +22,7 @@ export const Comment = ({ isAction, user_name, date, description, user_photo }) 
       
     return (
         <section className={styles.anchor}>
-            <UserPhoto src={`https://guinnodsdu.pythonanywhere.com${user_photo}`} width='40px'/>
+            <UserPhoto src={`${import.meta.env.VITE_BACKEND_API}${user_photo}`} width='40px'/>
             <List>
                 <div className={styles.header} style={style}>
                     <h4>{user_name}</h4>
