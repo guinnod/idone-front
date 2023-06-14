@@ -39,12 +39,15 @@ export const Home = () => {
             })
     }, [])
     const [boards, setBoards] = useState([]);
+    const [menu, setMenu] = useState(true);
     return (
         <>
-        <div >
-            <Header pluseAction={change}/>
+        <div style={{height: '100%'}}>
+            <Header isHome menu={menu} menuAction={() => { setMenu(prev => !prev) }} pluseAction={change}/>
             <div className={styles.content}>
-                <Menu />
+            {
+                        menu ? <Menu /> : <></>
+                    }
                 <div>
                     <h1 className={styles.text}>My boards</h1>
                     <div className={styles.boards}>

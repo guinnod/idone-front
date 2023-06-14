@@ -14,3 +14,17 @@
     color: $gray;
     font-size: 16px;
 }
+
+.box {
+    img {
+        transform: rotate(180deg);
+        transition-duration: 1000ms;
+    }
+}
+
+.box2 {
+    img {
+        transform: rotate(0deg);
+        transition-duration: 1000ms;
+    }
+}

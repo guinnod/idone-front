@@ -68,6 +68,7 @@ export const TaskEdit = ({ taskData, closeAction, project_users }) => {
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
+    const [isItems, setIsItems] = useState(true)
     return (
         <Window title='Name of the task' closeAction={() => { closeAction(); location.reload() }}>
             <Box gap={20} style={boxStyle}>
@@ -88,17 +89,28 @@ export const TaskEdit = ({ taskData, closeAction, project_users }) => {
                     </Box>
                     <TaskDate selectedDate={selectedDate} handleDateChange={handleDateChange}/>
                     <DescriptionInput id={"desc"} value={taskData.description} />
-                    <Checklist subCount={subCount} />
+                    <Checklist isItems={isItems} onClick={()=>{setIsItems(prev=>!prev)}} subCount={subCount} />
+                    {isItems ? 
                     <div>
                         {taskData.subtask_set ? taskData.subtask_set.map((e, key) => {
                             return (<TaskCheck onChange={() => {
                                 post({ path: `set-subtask/${taskData.project}/${taskData.pk}`, data: { pk: e.pk, is_done: document.getElementById(`sub-input${key}`).checked }, isAuth: true })
                                     .then(res => {
-
+                                        
+                                        setSubCount(prev=> {
+                                            if (document.getElementById(`sub-input${key}`).checked) {
+                                                let oldDone = prev.done;
+                                                return {...prev, done: oldDone + 1}
+                                            } else {
+                                                let oldDone = prev.done;
+                                                return {...prev, done: oldDone - 1}
+                                            }
+                                        })
                                     })
                             }} id={`sub-input${key}`} isDone={e.is_done} key={key} text={e.name} />)
                         }) : <></>}
                     </div>
+                    : <></>}
                     <div onClick={() => { setIsAddItem(true) }} style={{ margin: '10px', color: colors.gray, fontSize: '18px', cursor: 'pointer' }}>
                         + Add an item
                     </div>
@@ -112,6 +124,11 @@ export const TaskEdit = ({ taskData, closeAction, project_users }) => {
                                     put({ path: `set-subtask/${taskData.project}/${taskData.pk}`, data: { name: valNAme }, isAuth: true })
                                         .then(res => {
                                             taskData.subtask_set.push(res.data)
+                                            setSubCount(prev=> {
+                                                    let oldAll = prev.all;
+                                                    return {...prev, all: oldAll + 1}
+                                            })
+                                            setIsAddItem(false)
                                         })
                                 }} style={{ background: colors.main, width: '100px' }}>
                                     Save

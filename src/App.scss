@@ -16,6 +16,7 @@ body {
     color: $dark;
     background-color: $background;
     font-family: Roboto;
+    height: 125vh;
 }
 
 a {
@@ -34,6 +35,10 @@ textarea {
 input:focus,
 textarea:focus {
     outline: none;
+}
+
+#root {
+    height: 100%;
 }
 
 /* Width and Height of the scrollbar */

@@ -115,7 +115,7 @@ export const Profile = ({closeAction}) => {
                     <List>
                         {inputs.map((e, key) => {
                             return (
-                                <InputWithIcon key={key} placeholder={e.placeholder} type={e.type} src={editGrayIcon}
+                                <InputWithIcon disabled={e.type=='password'} key={key} placeholder={e.placeholder} type={e.type} src={editGrayIcon}
                                                style={style} href={e.href} id={e.id} onClick={e.onClick} pattern={e.pattern}/>
                             )
                         })}

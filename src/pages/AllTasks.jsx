@@ -64,14 +64,17 @@ export const AllTasks = () => {
             })
 
     }, [])
-
+    const [menu, setMenu] = useState(true);
 
     return (
         <>
-            <Header />
-            <div className={stylesHome.content}>
-                <Menu />
+            <Header menu={menu} menuAction={() => { setMenu(prev => !prev) }} />
+            <div style={{gap: '10px'}} className={stylesHome.content}>
+                {
+                    menu ? <Menu /> : <></>
+                }
                 <section className={styles.anchor}>
+                    <div style={{minWidth: '70px', height: '100%'}}></div>
                     {
                         Object.keys(tasks).map((e, key) => {
                             let keys = Object.keys(colors);
@@ -81,7 +84,7 @@ export const AllTasks = () => {
                             const randomValue = colors[randomKey];
                             return (
                                 <Box className={styles.lists} key={key}>
-                                    <CardList color={randomValue} text={e} cards={tasks[e]} />
+                                    <CardList isCardListAdd color={randomValue} text={e} cards={tasks[e]} />
                                 </Box>
                             )
                         })
